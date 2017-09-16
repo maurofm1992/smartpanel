@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+
+import serial
+import string
+
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -5,6 +10,15 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix", "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff", url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
 client.connect()
 
+test = serial.Serial("/dev/ttyACM0",9600)
+#test.open()
+x = 0
+while x < 5:
+    line = test.readline()
+    test.write(line)
+    print(line)
+    x = x + 1
+    
 databaseName = "coolstuff"
 
 myDatabase = client.create_database(databaseName)
@@ -45,3 +59,5 @@ for document in sampleData:
  # Check that the document exists in the database.
  if newDocument.exists():
      print ("Document '{0}' successfully created.".format(number))
+
+test.close()
