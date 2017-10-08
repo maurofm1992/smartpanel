@@ -13,12 +13,18 @@ client.connect()
 test = serial.Serial("/dev/ttyACM0",9600)
 #test.open()
 x = 0
-while x < 5:
+sume=0
+while x < 30:
     line = test.readline()
     test.write(line)
+
+    sume = sume + int(line)
     print(line)
     x = x + 1
-    
+sume=sume/30
+sume1 = sume/15
+sume2 = sume/5
+
 databaseName = "coolstuff"
 
 myDatabase = client.create_database(databaseName)
@@ -28,11 +34,11 @@ if myDatabase.exists():
 
 
 sampleData = [
-   [1, "one", "boiling", 100],
-   [2, "two", "hot", 40],
-   [3, "three", "warm", 20],
-   [4, "four", "cold", 10],
-   [5, "five", "freezing", 0]
+   [sume, "one", "boiling"],
+   [sume2, "two", "hot"],
+   [sume1, "three", "warm"],
+   [4, "four", "cold"],
+   [5, "five", "freezing"]
  ]
 
 # Create documents using the sample data.
@@ -42,15 +48,13 @@ for document in sampleData:
  number = document[0]
  name = document[1]
  description = document[2]
- temperature = document[3]
 
  # Create a JSON document that represents
  # all the data in the row.
  jsonDocument = {
-     "numberField": number,
+     "current": number,
      "nameField": name,
-     "descriptionField": description,
-     "temperatureField": temperature
+     "descriptionField": description
  }
 
  # Create a document using the Database API.
