@@ -14,16 +14,16 @@
 
 import os
 from flask import Flask, jsonify
-
+from flask import url_for, redirect
 app = Flask(__name__)
 
 @app.route('/')
 def Welcome():
-    return app.send_static_file('index.html')
+    return redirect(url_for('static', filename='index.html'))
 
 @app.route('/myapp')
 def WelcomeToMyapp():
-    return 'Welcome again to my app running on Bluemix!'
+    return 'Aelcome again to my app running on Bluemix!'
 
 @app.route('/api/people')
 def GetPeople():
