@@ -1,6 +1,7 @@
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
+from pprint import pprint
 from flask import Flask,jsonify,json
 
 client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
@@ -13,6 +14,8 @@ params = {'include_docs': 'true'}
 
 response = client.r_session.get(end_point,params=params)
 print "{0}\n".format(response.json())
+print pprint (response.json())
+pprint (response.json())
 
 #for item in response:
 
