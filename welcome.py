@@ -26,6 +26,13 @@ def Welcome():
     return redirect(url_for('static', filename='index.html'))
 
 
+@app.route('/print_items')
+def print_items():
+    items = table22
+    return render_template('print_items.html', items)
+
+
+
 @app.route('/myapp')
 def WelcomeToMyapp():
     return 'Aelcome again to my app running on Bluemix!'
