@@ -14,23 +14,17 @@
 
 import os
 from flask import Flask, jsonify
-<<<<<<< HEAD
-import dbte
-import Data_transfer
-
-
-=======
+#import dbte
+#import Data_transfer
 from flask import url_for, redirect
->>>>>>> d50826dc5a8668a614269c9c4938af4d28513b7b
 app = Flask(__name__)
 
 @app.route('/')
 def Welcome():
-<<<<<<< HEAD
     return app.send_file('index.html')
-=======
+
     return redirect(url_for('static', filename='index.html'))
->>>>>>> d50826dc5a8668a614269c9c4938af4d28513b7b
+
 
 @app.route('/myapp')
 def WelcomeToMyapp():
