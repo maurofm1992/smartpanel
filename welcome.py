@@ -36,6 +36,11 @@ def Welcome():
 def WelcomeToMyapp():
     return 'Aelcome again to my app running on Bluemix!'
 
+@app.route('/TEST')
+def dbTest():
+    return 'Aelcome again to my app running on Bluemix!'
+
+
 
 
 @app.route('/api/people')
