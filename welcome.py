@@ -34,7 +34,7 @@ response = client.r_session.get(end_point,params=params)
 table22 =response.json()['rows'][0]['doc']['current']
 
 
-
+#testing merge w mauricio
 # code for routing begins
 
 app = Flask(__name__)
