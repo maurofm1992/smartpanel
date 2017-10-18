@@ -33,7 +33,6 @@ params = {'include_docs': 'true'}
 response = client.r_session.get(end_point,params=params)
 table22 =response.json()['rows'][0]['doc']['current']
 
-
 # code for routing begins
 
 app = Flask(__name__)
