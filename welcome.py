@@ -35,8 +35,6 @@ from flask import Flask,jsonify,json
 # response = client.r_session.get(end_point,params=params)
 # table22 =response.json()['rows'][0]['doc']['current'],5,6
 
-
-
 # code for routing begins
 
 app = Flask(__name__)
