@@ -2,6 +2,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 from pprint import pprint
+from django.sortcuts import render
 from flask import Flask,jsonify,json
 
 client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
@@ -13,7 +14,7 @@ end_point = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluem
 params = {'include_docs': 'true'}
 
 response = client.r_session.get(end_point,params=params)
-#print ("{0}\n".format(response.json()))
+print ("{0}\n".format(response.json()))
 
 print (pprint (response.json()))
 table22 =response.json()['rows'][0]['doc']['current']
