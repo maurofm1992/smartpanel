@@ -43,8 +43,10 @@ a#toTop {
     text-align: center;
 	text-decoration:none;
 	color: #ffa800;
-	font-size:2em;
+	font-size:60px;
     border-top: 200px;
+    margin-bottom: 1em;
+    margin-top: 1em;
 	  line-height: 0;
 }
 .head-logo h1 a img{
@@ -154,6 +156,7 @@ a i.google:hover {
 	display:inline-block;
 	float:left;
 	margin: 0 0.5em;
+    position: static;
 }
 .top-menu ul li a{
 	text-decoration:none;
@@ -162,9 +165,12 @@ a i.google:hover {
 	color:#ffa800;
 	font-size:1em;
 	font-weight:700;
+    position: center;
+    margin-right: 55px;
 }
 .top-menu ul{
 	border-bottom:1px solid rgba(255, 255, 255, 0.1);
+    position: static;
 }
 .top-menu ul li.active a{
 	color: #ffa800;
@@ -1577,10 +1583,13 @@ span.menu{
 }
 .top-menu  ul{
 	display:none;
-}
+    position:fixed;
+    
+    }
 .top-menu  ul li {
 	font-size: 12px;
-	display:inline-block;
+	display:inline-flex;
+    position: static;
 	width: 100%;
 	margin:0;
 }
@@ -1596,7 +1605,7 @@ span.menu{
 .top-menu  ul{
 	margin: 0;
 	z-index: 999;
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	text-align: center;
 	left: 0%;	
