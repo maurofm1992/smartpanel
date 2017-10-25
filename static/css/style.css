@@ -156,7 +156,6 @@ a i.google:hover {
 	display:inline-block;
 	float:left;
 	margin: 0 0.5em;
-    position: static;
 }
 .top-menu ul li a{
 	text-decoration:none;
@@ -170,7 +169,6 @@ a i.google:hover {
 }
 .top-menu ul{
 	border-bottom:1px solid rgba(255, 255, 255, 0.1);
-    position: static;
 }
 .top-menu ul li.active a{
 	color: #ffa800;
@@ -1583,13 +1581,11 @@ span.menu{
 }
 .top-menu  ul{
 	display:none;
-    position:fixed;
     
     }
 .top-menu  ul li {
 	font-size: 12px;
 	display:inline-flex;
-    position: static;
 	width: 100%;
 	margin:0;
 }
