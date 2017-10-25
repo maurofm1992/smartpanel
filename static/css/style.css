@@ -155,7 +155,7 @@ a i.google:hover {
 .top-menu ul li{
 	display:inline-block;
 	float:left;
-	margin: 0 0.5em;
+	margin: 0 2em;
 }
 .top-menu ul li a{
 	text-decoration:none;
@@ -165,7 +165,6 @@ a i.google:hover {
 	font-size:1em;
 	font-weight:700;
     position: center;
-    margin-right: 30px;
 }
 .top-menu ul{
 	border-bottom:1px solid rgba(255, 255, 255, 0.1);
@@ -1601,7 +1600,6 @@ span.menu{
 .top-menu  ul{
 	margin: 0;
 	z-index: 999;
-	position: fixed;
 	width: 100%;
 	text-align: center;
 	left: 0%;	
