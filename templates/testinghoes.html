@@ -11,6 +11,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <!-- creating a chart with the data -->
 <script>
+// creating date object
+var myDateIsHot = new Date()
+var myDateIsHotOneMinAgo = new Date(myDateIsHot - 60000)
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -20,7 +24,7 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [myDateIsHot, myDateIsHotOneMinAgo, "March", "April", "May", "June", "July"],
         datasets: [{
             label: "My Power Usage",
             backgroundColor: 'rgb(255, 99, 132)',
