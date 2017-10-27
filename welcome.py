@@ -14,6 +14,9 @@
 
 import os
 from flask import Flask, jsonify
+# Motherfuckin Data
+from Data import MofoData
+
 #import dbte
 from flask import url_for, redirect
 from flask import render_template
@@ -67,7 +70,20 @@ def WelcomeToMyapp():
 
 
 
+
     return render_template('tester.html', table = table22)
+@app.route('/myappe')
+def WelcomeToMyappe():
+    mygData = MofoData("David", 999999999)
+    dtab = mygData.getDataByMinute()
+
+
+
+
+
+
+
+    return render_template('testinghoes.html', table = dtab)
 
 
 
