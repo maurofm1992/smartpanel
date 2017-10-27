@@ -5,9 +5,35 @@
     <title>Title</title>
 </head>
 <body>
+<canvas id="myChart"></canvas>
 
-<h2>Use the XMLHttpRequest to get the content of a file.</h2>
-<p>The content is written in JSON format'{{table[0]}}'', and can easily be converted into a JavaScript object.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<!-- creating a chart with the data -->
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    // You must leave the color of the graph pink MAURICIO!!!!!!! or
+    // you will ruin the entire project!
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: "My Power Usage",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, 2, 20, 30, 45],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
+<p>{{table[1]}} </p>
 
 <p id="demo"></p>
 
@@ -18,7 +44,7 @@ document.getElementById("demo").innerHTML = obj.name + ", " + obj.name;
 
 </script> -->
 
-<p>Take a look at <a href="json_demo.txt" target="_blank">json_demo.txt</a></p>
+<!-- <p>Take a look at <a href="json_demo.txt" target="_blank">json_demo.txt</a></p> -->
 
 </body>
 </html>
