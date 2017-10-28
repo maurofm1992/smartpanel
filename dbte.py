@@ -7,22 +7,101 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 
+import smbus
+import time
+
+# Get I2C bus
+bus = smbus.SMBus(1)
+
 client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix", "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff", url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
 client.connect()
-sume ="2"
+
+
+# I2C address, 0x2A(42)
+# Command for reading device identification data
+# 0x6A(106), 0x02(2), 0x00(0),0x00(0), 0x00(0) 0x00(0), 0xFE(254)
+# Header byte-2, command-2, byte 3, 4, 5 and 6 are reserved, checksum
+command2 = [0x6A, 0x02, 0x00, 0x00, 0x00, 0x00, 0xFE]
+bus.write_i2c_block_data(0x2A, 0x92, command2)
+j = 10
+time.sleep(0.5)
+
+# I2C address, 0x2A(42)
+# Read data back from 0x55(85), 3 bytes
+# Type of Sensor, Maximum Current, No. of Channels
+data = bus.read_i2c_block_data(0x2A, 0x55, 3)
+
+# Convert the data
+typeOfSensor = data[0]
+maxvolt = data[1]
+noOfChannel = data[2]
+# I2C address, 0x2A(42)
+# Command for reading voltage
+# 0x6A(106), 0x05(5), 0x01(1),0x02(2), 0x00(0), 0x00(0) 0x04(4)
+# Header byte-2, command-5, start channel-1, stop channel-12, byte 5 and 6 reserved, checksum
+command1 = [0x6A, 0x05, 0x01, 0x02, 0x00, 0x00, 0x04]
+bus.write_i2c_block_data(0x2A, 0x92, command1)
+time.sleep(0.5)
+
+# I2C address, 0x2A(42)
+# Read data back from 0x55(85), No. of Channels * 3 bytes
+# current MSB1, current MSB, current LSB
+data1 = bus.read_i2c_block_data(0x2A, 0x55, 2*3)
+volts = []
+# Convert the data
+for i in range(0, 2) :
+        msb1 = data1[i * 3]
+        msb = data1[1 + i * 3]
+        lsb = data1[2 + i * 3]
+
+        # Convert the data to ampere
+        volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
+
+        volts.append(volt)
+
+
+
+##sume ="2"
 test = serial.Serial("/dev/ttyACM0",9600)
-###test.open()
-##x = 0
-##sume=0
-##while x < 30:
-##    line = test.readline()
-##    test.write(line)
-##
-##    sume = sume + int(line)
-##    print(line)
-##    x = x + 1
-sume=sume/30
+#test.open()
+x = 0
+
+sume=0.00
+total_power=0
+volts_total =0 
+while x < 5:
+    volts = []
+# Convert the data
+    for i in range(0, 2) :
+        msb1 = data1[i * 3]
+        msb = data1[1 + i * 3]
+        lsb = data1[2 + i * 3]
+
+        # Convert the data to ampere
+        volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
+
+        volts.append(volt)
+
+        
+    line = test.readline(4)
+    test.write(line)
+    power = volts[0] * int(line)
+    total_power = power + total_power
+    volts_total = volts[0] + volts_total
+
+    sume = sume + int(line)
+    print(line)
+    x = x + 1
+total_power_avg = total_power /100 /5
+volts_total_avg = volts_total/5
+sume=sume/5
+final_sume = sume / 100
 sume1 = sume/15
+print("power : " + str(total_power_avg))
+print("volts : " + str(volts_total_avg))
+print("current : " + str(final_sume))
+
+
 sume2 = sume/5
 databaseName = "coolstuff"
 
@@ -30,13 +109,13 @@ myDatabase = client.create_database(databaseName)
 
 if myDatabase.exists():
    print ("'{0}' successfully created.\n".format(databaseName))
-
+print(volts[0])
 sampleData = [
-   [sume, "one", "boiling"],
-   [sume2, "two", "hot"],
-   [sume1, "three", "warm"],
-   [4, "four", "cold"],
-   [5, "five", "freezing"]
+   [final_sume, volts_total_avg, total_power_avg],
+   [final_sume, "two", "hot"],
+   [final_sume, "three", "warm"],
+   [4.00, "four", "cold"],
+   [5.00, "five", "freezing"]
  ]
 
 # Create documents using the sample data.
@@ -51,7 +130,7 @@ for document in sampleData:
  # all the data in the row.
  jsonDocument = {
      "current": number,
-     "nameField": name,
+     "Voltage": name,
      "descriptionField": description
  }
 
@@ -62,4 +141,3 @@ for document in sampleData:
  if newDocument.exists():
      print ("Document '{0}' successfully created.".format(number))
 
-#test.close()
