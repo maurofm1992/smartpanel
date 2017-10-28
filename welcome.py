@@ -83,7 +83,7 @@ def WelcomeToMyappe():
 
 
 
-    return render_template('testinghoes.html', table = dtab)
+    return render_template('graph.html', table = dtab)
 
 
 
