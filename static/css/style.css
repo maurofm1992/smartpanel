@@ -37,6 +37,12 @@ a#toTop {
   background-size: cover;
   position: relative;
 }
+.banner1{
+  background-color: cornflowerblue;
+  min-height: 855px;
+  background-size: cover;
+  position: relative;
+}
 .head-logo h1 a{
 	font-family: 'Iceland', cursive;
 	font-weight: 600;
