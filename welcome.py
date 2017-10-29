@@ -112,6 +112,8 @@ def my_form_post():
     processed_text = text.upper()
     if processed_text = "ON":
         turnOn()
+    else:
+        turnOff()
 
 
 
