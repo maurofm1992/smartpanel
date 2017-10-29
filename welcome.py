@@ -16,6 +16,8 @@ import os
 from flask import Flask, jsonify
 # Motherfuckin Data
 from Data import MofoData
+from flask import request
+from gpio_test import *
 
 #import dbte
 from flask import url_for, redirect
@@ -98,6 +100,20 @@ def WelcomeToMyappe():
 #
 
 
+@app.route('/vcb')
+def my_form():
+    return render_template("VCB.html")
+
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+
+    text = request.form['text']
+    processed_text = text.upper()
+    if processed_text = "ON":
+        turnOn()
+
+
 
 
 @app.route('/api/people/<name>')
@@ -106,6 +122,10 @@ def SayHello(name):
         'message': 'Hello ' + name
     }
     return jsonify(results=message)
+
+
+
+    
 
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
