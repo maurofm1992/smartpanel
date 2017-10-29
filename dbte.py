@@ -84,6 +84,7 @@ total_bedroom_pow = 0
 volts_total =0 
 
 cur_time = datetime.datetime.now()
+awesome_cur_time = str(cur_time)
 while x < 7:
     volts = []
 # Convert the data
@@ -143,11 +144,8 @@ if myDatabase.exists():
    print ("'{0}' successfully created.\n".format(databaseName))
 print(volts[0])
 sampleData = [
-   [final_sume, volts_total_avg, total_power_avg, "kitchen",cur_time],
-   [final_sume, 25, 5,"kitchen",cur_time],
-   [final_sume, 68, 47,"kitchen",cur_time],
-   [4.00, 42, 5,"bedroom",cur_time],
-   [5.00, 5, 54,"kitchen",cur_time]
+   [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time],
+   [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
  ]
 
 # Create documents using the sample data.
