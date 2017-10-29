@@ -7,6 +7,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 
+import datetime
 import smbus
 import time
 
@@ -81,10 +82,13 @@ bedroom_pow = 0
 bedroom_volt = 0
 total_bedroom_pow = 0
 volts_total =0 
+
+cur_time = datetime.datetime.now()
 while x < 7:
     volts = []
 # Convert the data
     for i in range(0, 2) :
+        
         msb1 = data1[i * 3]
         msb = data1[1 + i * 3]
         lsb = data1[2 + i * 3]
@@ -139,11 +143,11 @@ if myDatabase.exists():
    print ("'{0}' successfully created.\n".format(databaseName))
 print(volts[0])
 sampleData = [
-   [final_sume, volts_total_avg, total_power_avg, "kitchen"],
-   [final_sume, 25, 5,"kitchen"],
-   [final_sume, 68, 47,"kitchen"],
-   [4.00, 42, 5,"bedroom"],
-   [5.00, 5, 54,"kitchen"]
+   [final_sume, volts_total_avg, total_power_avg, "kitchen",cur_time],
+   [final_sume, 25, 5,"kitchen",cur_time],
+   [final_sume, 68, 47,"kitchen",cur_time],
+   [4.00, 42, 5,"bedroom",cur_time],
+   [5.00, 5, 54,"kitchen",cur_time]
  ]
 
 # Create documents using the sample data.
@@ -154,6 +158,7 @@ for document in sampleData:
  name = document[1]
  description = document[2]
  circuit = document[3]
+ time = document[4]
 
  # Create a JSON document that represents
  # all the data in the row.
@@ -161,7 +166,8 @@ for document in sampleData:
      "current": number,
      "Voltage": name,
      "Power": description,
-     "Circuit" : circuit
+     "Circuit" : circuit,
+     "Time" : time
  }
 
  # Create a document using the Database API.
