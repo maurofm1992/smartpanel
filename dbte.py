@@ -63,13 +63,23 @@ for i in range(0, 2) :
 
 ##sume ="2"
 test = serial.Serial("/dev/ttyACM0",9600)
+
+
 #test.open()
-x = 0
+x = 1
 
 sume=0.00
 total_power=0
+kitchen_cur = 0
+kitchen_pow = 0
+kitchen_volt = 0
+total_kitchen_pow =0
+bedroom_cur = 0
+bedroom_pow = 0
+bedroom_volt = 0
+total_bedroom_pow = 0
 volts_total =0 
-while x < 5:
+while x < 7:
     volts = []
 # Convert the data
     for i in range(0, 2) :
@@ -85,6 +95,16 @@ while x < 5:
         
     line = test.readline(4)
     test.write(line)
+    if(x%2 == 1):
+        #kitchen_cur = int(line)
+        kitchen_pow = int(line) * volts[0]
+        total_kitchen_pow = total_kitchen_pow +kitchen_pow
+    if(x%2 == 0):
+        #bedroom_cur = int(line)
+        bedroom_pow = int(line) * volts[0]
+        total_bedroom_pow = total_bedroom_pow +bedroom_pow
+        
+        
     power = volts[0] * int(line)
     total_power = power + total_power
     volts_total = volts[0] + volts_total
@@ -92,17 +112,21 @@ while x < 5:
     sume = sume + int(line)
     print(line)
     x = x + 1
-total_power_avg = total_power /100 /5
-volts_total_avg = volts_total/5
-sume=sume/5
+total_power_avg = total_power /100 /6
+total_kitchen_avg = total_kitchen_pow/100/3
+total_bedroom_avg = total_bedroom_pow / 100/ 3
+volts_total_avg = volts_total/6
+sume=sume/6
 final_sume = sume / 100
 sume1 = sume/15
 print("power : " + str(total_power_avg))
 print("volts : " + str(volts_total_avg))
+print("kitchen : " + str(total_kitchen_avg))
+print("bedroom : " + str(total_bedroom_avg))
 print("current : " + str(final_sume))
 
 
-sume2 = sume/5
+sume2 = sume/6
 databaseName = "coolstuff"
 
 myDatabase = client.create_database(databaseName)
@@ -111,11 +135,11 @@ if myDatabase.exists():
    print ("'{0}' successfully created.\n".format(databaseName))
 print(volts[0])
 sampleData = [
-   [final_sume, volts_total_avg, total_power_avg],
-   [final_sume, "two", "hot"],
-   [final_sume, "three", "warm"],
-   [4.00, "four", "cold"],
-   [5.00, "five", "freezing"]
+   [final_sume, volts_total_avg, total_power_avg, "kitchen"],
+   [final_sume, 25, 5,"kitchen"],
+   [final_sume, 68, 47,"kitchen"],
+   [4.00, 42, 5,"bedroom"],
+   [5.00, 5, 54,"kitchen"]
  ]
 
 # Create documents using the sample data.
@@ -125,13 +149,15 @@ for document in sampleData:
  number = document[0]
  name = document[1]
  description = document[2]
+ circuit = document[3]
 
  # Create a JSON document that represents
  # all the data in the row.
  jsonDocument = {
      "current": number,
      "Voltage": name,
-     "descriptionField": description
+     "Power": description,
+     "Circuit" : circuit
  }
 
  # Create a document using the Database API.
