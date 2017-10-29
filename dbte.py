@@ -56,7 +56,9 @@ for i in range(0, 2) :
 
         # Convert the data to ampere
         volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
-
+        if volt > 100:
+                volt = volt /100
+        volt = volt * 1.414213
         volts.append(volt)
 
 
@@ -89,7 +91,9 @@ while x < 7:
 
         # Convert the data to ampere
         volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
-
+        if volt > 100:
+                volt = volt /100
+        volt = volt * 1.414213
         volts.append(volt)
 
         
