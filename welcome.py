@@ -17,7 +17,7 @@ from flask import Flask, jsonify
 # Motherfuckin Data
 from Data import MofoData
 from flask import request
-from gpio_test import *
+from gpio_test import turnOn, turnOff
 
 #import dbte
 from flask import url_for, redirect

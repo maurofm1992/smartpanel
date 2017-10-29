@@ -100,6 +100,7 @@ while x < 7:
                 volt = volt /100
         volt = volt * 1.414213
         volts.append(volt)
+        print(volts[i])
 
         
     line = test.readline(4)
