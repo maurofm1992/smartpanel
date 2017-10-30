@@ -77,6 +77,7 @@ def WelcomeToMyapp():
 def WelcomeToMyappe():
     mygData = MofoData("David", 999999999)
     dtab = mygData.getDataByMinute()
+    dTime = mygData.getTimeLast()
 
 
 
@@ -84,7 +85,7 @@ def WelcomeToMyappe():
 
 
 
-    return render_template('graph.html', table = dtab)
+    return render_template('graph.html', table = dtab, time_table = dTime)
 
 
 
@@ -108,6 +109,7 @@ def my_form():
 def my_form_post():
     status= 0
     text = request.form['text']
+    slider_stat = request.form['slid']
     processed_text = text.upper()
     if processed_text == "ON":  # the user has signal on
         status = 1
@@ -128,7 +130,7 @@ def SayHello(name):
 
 
 
-    
+
 
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":

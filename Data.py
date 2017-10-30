@@ -28,12 +28,26 @@ class MofoData:
 
    def displayCount(self):
      print ("Total Employee %d" % MofoData.empCount)
-   def getDataByMinute(self):
+
+
+   def getTimeLast(self):
        i=0
        table = []
        while (i<7):
 
            table.append(response.json()['rows'][-i]['doc']['current'])
+           # table[i] = (response.json
+           # table.insert(i,response.json()['rows'][i]['doc']['current'])
+           i = i+1
+       return table
+
+
+   def getDataByMinute(self):
+       i=0
+       table = []
+       while (i<7):
+
+           table.append(response.json()['rows'][-i]['doc']['Power'])
            # table[i] = (response.json
            # table.insert(i,response.json()['rows'][i]['doc']['current'])
            i = i+1
@@ -45,4 +59,3 @@ class MofoData:
            return 0
    def displayEmployee(self):
       print ("Name : ", self.name,  ", Salary: ", self.salary)
-
