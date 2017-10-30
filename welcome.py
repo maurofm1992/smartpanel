@@ -17,8 +17,7 @@ from flask import Flask, jsonify
 # Motherfuckin Data
 from Data import MofoData
 from flask import request
-from gpio_test import turnOn, turnOff
-
+from add_signal_db import add_signal
 #import dbte
 from flask import url_for, redirect
 from flask import render_template
@@ -107,13 +106,15 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-
+    status= 0
     text = request.form['text']
     processed_text = text.upper()
-    if processed_text = "ON":
-        turnOn()
+    if processed_text == "ON":  # the user has signal on
+        status = 1
     else:
-        turnOff()
+        status = 0
+    add_signal(status)
+    return processed_text
 
 
 
