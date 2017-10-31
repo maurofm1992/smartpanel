@@ -101,9 +101,9 @@ while x < 7:
 
         # Convert the data to ampere
         volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
-        if volt > 100:
+        if volt > 130:
                 volt = volt /100
-        volt = volt * 1.414213
+        #volt = volt * 1.414213
         volts.append(volt)
         print(volts[i])
 
