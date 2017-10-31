@@ -183,7 +183,7 @@ while(True):
     dat_of_stat = MofoData("Davied", 999999999)
     status_circuit = dat_of_stat.getStatusCircuit()
     print(status_circuit)
-    if status_circuit == 1:
+    if status_circuit == '1':
         turnOn()
     else:
         turnOff()

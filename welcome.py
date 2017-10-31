@@ -109,7 +109,6 @@ def my_form():
 def my_form_post():
     status= 0
     text = request.form['text']
-    slider_stat = request.form['slid']
     processed_text = text.upper()
     if processed_text == "ON":  # the user has signal on
         status = 1
