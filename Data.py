@@ -54,12 +54,10 @@ class MofoData:
        return table
    def getStatusCircuit (self):
        if(response_status.json()['rows'][-1]['doc']['status'] == 1):
-           response_status.json()['rows'][-1].delete()
 
            return "1"
        else:
 
-           response_status.json()['rows'][-1].delete()
            return "0"
    def displayEmployee(self):
       print ("Name : ", self.name,  ", Salary: ", self.salary)
