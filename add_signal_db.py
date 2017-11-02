@@ -17,6 +17,7 @@ def add_signal(status):
 
 
     databaseName = "status"
+    client.delete_database(databaseName)
 
     myDatabase = client.create_database(databaseName)
 
@@ -47,4 +48,3 @@ def add_signal(status):
         # Check that the document exists in the database.
         if newDocument.exists():
             print("Document '{0}' successfully created.".format(number))
-
