@@ -23,7 +23,7 @@ while(True):
     end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" + "/_all_docs?")
     params = {'include_docs': 'true'}
     response_status = client.r_session.get(end_point_status,params=params)
-    
+
     def getStatusCircuit ():
        if(response_status.json()['rows'][-1]['doc']['status'] == 1):
            turnOn()
@@ -205,10 +205,10 @@ while(True):
      # Check that the document exists in the database.
      if newDocument.exists():
          print("Document '{0}' successfully created.".format(number))
-    dat_of_stat =  MofoData()
-    status_circuit = dat_of_stat.getStatusCircuit()
-    print(status_circuit)
-    if status_circuit == '1':
-        turnOn()
-    else:
-        turnOff()
+    # dat_of_stat =  MofoData()
+    # status_circuit = dat_of_stat.getStatusCircuit()
+    # print(status_circuit)
+    # if status_circuit == '1':
+    #     turnOn()
+    # else:
+    #     turnOff()

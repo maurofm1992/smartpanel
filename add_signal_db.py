@@ -17,13 +17,17 @@ def add_signal(status):
 
 
     databaseName = "status"
-    client.delete_database(databaseName)
 
     myDatabase = client.create_database(databaseName)
 
     if myDatabase.exists():
         print("'{0}' successfully created.\n".format(databaseName))
-        myDatabase.delete()
+        client.delete_database(databaseName)
+    myDatabase = client.create_database(databaseName)
+    if myDatabase.exists():
+        print("'{0}' successfully created.\n".format(databaseName))    
+
+
     sampleData = [
         [ status , "kitchen"]
     ]
