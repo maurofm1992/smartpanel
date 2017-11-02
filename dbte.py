@@ -20,6 +20,18 @@ while(True):
                       "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
                       url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
     client.connect()
+    end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" + "/_all_docs?")
+    params = {'include_docs': 'true'}
+    response_status = client.r_session.get(end_point_status,params=params)
+    getStatusCircuit()
+    def getStatusCircuit ():
+       if(response_status.json()['rows'][-1]['doc']['status'] == 1):
+           turnOn()
+           return "1"
+       else:
+           turnOff()
+           return "0"
+
 
 
     # Get I2C bus
@@ -106,7 +118,7 @@ while(True):
             if volt > 130:
                      volt = volt /100
             if volt<90 and volt>80:
-                volt = volt * 1.414213            
+                volt = volt * 1.414213
             # volt = volt * 1.414213
             if volt<118:
                 volt = volt * 1.0173
@@ -116,7 +128,7 @@ while(True):
             print(i )
             i=i-1
             print(str(volts[i])+ "  V\n")
-            
+
 
 
 
@@ -199,4 +211,3 @@ while(True):
         turnOn()
     else:
         turnOff()
-
