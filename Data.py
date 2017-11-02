@@ -24,14 +24,14 @@ class MofoData:
 
       MofoData.empCount += 1
 
-   def displayCount(self):
-     print ("Total Employee %d" % MofoData.empCount)
 
 
    def getTimeLast(self):
        i=0
        table = []
        while (i<7):
+           if(response.json()['rows'][-i]['doc']['Circuit'] == "bedroom"):
+               print ("hello")
 
            table.append(response.json()['rows'][-i]['doc']['current'])
            # table[i] = (response.json
@@ -51,7 +51,7 @@ class MofoData:
            i = i+1
        return table
    def getStatusCircuit (self):
-       if(response_status.json()['rows'][-1]['doc']['status'] == 1):            
+       if(response_status.json()['rows'][-1]['doc']['status'] == 1):
            return "1"
-       else:          
+       else:
            return "0"
