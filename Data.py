@@ -15,15 +15,13 @@ params = {'include_docs': 'true'}
 response = client.r_session.get(end_point,params=params)
 response_status = client.r_session.get(end_point_status,params=params)
 
-table22 =response.json()['rows'][0]['doc']['current'],5,6
 
 class MofoData:
    'Common base class for all employees'
    empCount = 0
 
-   def __init__(self, name, salary):
-      self.name = name
-      self.salary = salary
+   def __init__(self):
+
       MofoData.empCount += 1
 
    def displayCount(self):
@@ -53,11 +51,7 @@ class MofoData:
            i = i+1
        return table
    def getStatusCircuit (self):
-       if(response_status.json()['rows'][-1]['doc']['status'] == 1):
-
+       if(response_status.json()['rows'][-1]['doc']['status'] == 1):            
            return "1"
-       else:
-
+       else:          
            return "0"
-   def displayEmployee(self):
-      print ("Name : ", self.name,  ", Salary: ", self.salary)

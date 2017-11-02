@@ -20,6 +20,8 @@ while(True):
                       "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
                       url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
     client.connect()
+
+
     # Get I2C bus
     bus = smbus.SMBus(1)
 
@@ -106,8 +108,16 @@ while(True):
             if volt<90 and volt>80:
                 volt = volt * 1.414213            
             # volt = volt * 1.414213
+            if volt<118:
+                volt = volt * 1.0173
             volts.append(volt)
-            print(volts[i])
+            print("CHANNEL = " )
+            i = i+1
+            print(i )
+            i=i-1
+            print(str(volts[i])+ "  V\n")
+            
+
 
 
         line = test.readline(4)
@@ -127,7 +137,7 @@ while(True):
         volts_total = volts[0] + volts_total
 
         sume = sume + int(line)
-        print(line)
+        print("current = " + str(float(line)/100) + "A\n")
         x = x + 1
     total_power_avg = total_power /100 /6
     total_kitchen_avg = total_kitchen_pow/100/3
@@ -136,11 +146,11 @@ while(True):
     sume=sume/6
     final_sume = sume / 100
     sume1 = sume/15
-    print("power : " + str(total_power_avg))
-    print("volts : " + str(volts_total_avg))
-    print("kitchen : " + str(total_kitchen_avg))
-    print("bedroom : " + str(total_bedroom_avg))
-    print("current : " + str(final_sume))
+    print("Avg power : " + str(total_power_avg))
+    print("Avg volts : " + str(volts_total_avg))
+    print("Avg Load 1 : " + str(total_kitchen_avg) + "  W")
+    print("Avg Load 2 : " + str(total_bedroom_avg) + "  W")
+    print("Avg current : " + str(final_sume))
 
 
     sume2 = sume/6
@@ -182,10 +192,11 @@ while(True):
      # Check that the document exists in the database.
      if newDocument.exists():
          print("Document '{0}' successfully created.".format(number))
-    dat_of_stat = MofoData("Davied", 999999999)
+    dat_of_stat =  MofoData()
     status_circuit = dat_of_stat.getStatusCircuit()
     print(status_circuit)
     if status_circuit == '1':
         turnOn()
     else:
         turnOff()
+

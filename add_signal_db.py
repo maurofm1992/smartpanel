@@ -22,6 +22,7 @@ def add_signal(status):
 
     if myDatabase.exists():
         print("'{0}' successfully created.\n".format(databaseName))
+        myDatabase.delete()
     sampleData = [
         [ status , "kitchen"]
     ]
