@@ -179,7 +179,7 @@ while(True):
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
 
-    # Create documents using the sample data.
+    # Create docummments using the sample data.
     # Go through each row in the array
     for document in sampleData:
      # Retrieve the fields in each row.
