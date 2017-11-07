@@ -86,7 +86,7 @@ class MofoData:
            #make a function that adds all the data for past min
            #each db entry is an average of 3 seconds
            # there are 60/3 entries in a min
-           if i=1:
+           if i==1:
                x=1
            else:
                x= (20*(i-1))
