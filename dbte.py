@@ -59,7 +59,7 @@ while(True):
     volts_total =0
 
     cur_time = datetime.datetime.now()
-    awesome_cur_time = str(cur_time.weekday())
+    awesome_cur_time = str(cur_time)
     while x < 7:
         volts = getVolts()
 
@@ -179,7 +179,7 @@ while(True):
          "Voltage": name,
          "Power": description,
          "Circuit" : circuit,
-         "Time" : str(time),
+         "Time" : time,
          "_id" : time
      }
 
