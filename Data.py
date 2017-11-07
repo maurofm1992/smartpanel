@@ -25,7 +25,7 @@ class MofoData:
 
 
    def getTimeLast(self):
-       i=0
+       i=1
        table = []
        while (i<7):
 
@@ -37,7 +37,7 @@ class MofoData:
 
 
    def getDataByMinute(self):
-       i=0
+       i=1
        table = []
        while (i<7):
            table.append(response.json()['rows'][-i]['doc']['Power'])
