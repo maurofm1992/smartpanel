@@ -50,7 +50,7 @@ class MofoData:
        return table
 
    def getCurId (self):
-       curId = response.json()['rows'][-i]['doc']['_id'])
+       curId = response.json()['rows'][-i]['doc']['_id']
 
        return curId
 
