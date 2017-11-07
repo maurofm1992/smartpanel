@@ -92,18 +92,15 @@ while(True):
     print("Avg current : " + str(final_sume))
 
     #calls create db funct in functions
-    create_db("coolstuff")
-    create_db("load2")
-    create_db("load3")
-    create_db("load4")
-    create_db("load5")
+    myDatabase = create_db("coolstuff")
+    myDatabase_load_2 = create_db("load2")
+    myDatabase_load_3 = create_db("load3")
+    myDatabase_load_4 = create_db("load4")
+    myDatabase_load_5 = create_db("load5")
 
 
     sume2 = sume/6
 
-
-    if myDatabase.exists():
-       print ("'{0}' successfully created.\n".format(databaseName))
     print(volts[0])
     sampleData = [
        [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time],
