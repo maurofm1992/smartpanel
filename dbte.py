@@ -179,7 +179,7 @@ while(True):
          "Voltage": name,
          "Power": description,
          "Circuit" : circuit,
-         "Time" : time,
+         "Time" : str(time),
          "_id" : time
      }
 
