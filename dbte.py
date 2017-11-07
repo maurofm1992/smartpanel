@@ -224,7 +224,7 @@ while(True):
 
      # Create a document using the Database API.
      newDocument = myDatabase.create_document(jsonDocument)
-     newDocument_load_2 = myDatabase.create_document(jsonDocument_load_2)
+     newDocument_load_2 = myDatabase_load_2.create_document(jsonDocument_load_2)
 
      # Check that the document exists in the database.
      if newDocument.exists():
