@@ -16,6 +16,7 @@ import time
 test = serial.Serial("/dev/ttyACM0",9600)
 
 while(True):
+
     client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
                       "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
                       url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
@@ -168,8 +169,10 @@ while(True):
 
     sume2 = sume/6
     databaseName = "coolstuff"
+    databaseName_load_2 = "load 2"
 
     myDatabase = client.create_database(databaseName)
+    myDatabase_load_2 = client.create_database(databaseName_load_2)
 
     if myDatabase.exists():
        print ("'{0}' successfully created.\n".format(databaseName))
@@ -178,7 +181,9 @@ while(True):
        [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time],
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
-
+    sampleData_load_2 = [
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
+     ]
     # Create docummments using the sample data.
     # Go through each row in the array
     for document in sampleData:
@@ -188,6 +193,15 @@ while(True):
      description = document[2]
      circuit = document[3]
      time = document[4]
+
+    for document in sampleData_load_2:
+     # Retrieve the fields in each row.
+     number_load_2 = document[0]
+     name_load_2 = document[1]
+     description_load_2 = document[2]
+     circuit_load_2 = document[3]
+     time_load_2 = document[4]
+
 
      # Create a JSON document that represents
      # all the data in the row.
@@ -199,11 +213,23 @@ while(True):
          "Time" : time
      }
 
+
+     jsonDocument_load_2 = {
+         "current": number_load_2,
+         "Voltage": name_load_2,
+         "Power": description_load_2,
+         "Circuit" : circuit_load_2,
+         "Time" : time_load_2
+     }
+
      # Create a document using the Database API.
      newDocument = myDatabase.create_document(jsonDocument)
+     newDocument_load_2 = myDatabase.create_document(jsonDocument_load_2)
 
      # Check that the document exists in the database.
      if newDocument.exists():
+         print("Document '{0}' successfully created.".format(number))
+     if newDocument_load_2.exists():
          print("Document '{0}' successfully created.".format(number))
     # dat_of_stat =  MofoData()
     # status_circuit = dat_of_stat.getStatusCircuit()
