@@ -28,8 +28,6 @@ class MofoData:
        i=0
        table = []
        while (i<7):
-           if response.json()['rows'][-i]['doc']['Circuit'] == "bedroom":
-               print ("hello")
 
            table.append(response.json()['rows'][-i]['doc']['current'])
            # table[i] = (response.json
@@ -54,8 +52,8 @@ class MofoData:
 
        return curId
 
-   def getStatusCircuit (self):
-       if(response_status.json()['rows'][-1]['doc']['status'] == 1):
-           return "1"
-       else:
-           return "0"
+   # def getStatusCircuit (self):
+   #     if(response_status.json()['rows'][-1]['doc']['status'] == 1):
+   #         return "1"
+   #     else:
+   #         return "0"
