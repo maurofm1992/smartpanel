@@ -170,6 +170,7 @@ while(True):
          "Power": description,
          "Circuit" : circuit,
          "Time" : time
+         "_id" : "david"
      }
 
 
