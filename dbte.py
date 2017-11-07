@@ -176,6 +176,8 @@ while(True):
 
     if myDatabase.exists():
        print ("'{0}' successfully created.\n".format(databaseName))
+    if myDatabase_load_2.exists():
+       print ("'{0}' successfully created.\n".format(databaseName_load_2))       
     print(volts[0])
     sampleData = [
        [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time],
