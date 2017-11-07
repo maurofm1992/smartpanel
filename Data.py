@@ -42,12 +42,18 @@ class MofoData:
        i=0
        table = []
        while (i<7):
-
-           table.append(response.json()['rows'][-i]['doc']['Power'])
+           if response.json()['rows'][-i]['doc']['Power'] != 0:
+               table.append(response.json()['rows'][-i]['doc']['Power'])
            # table[i] = (response.json
            # table.insert(i,response.json()['rows'][i]['doc']['current'])
            i = i+1
        return table
+
+   def getCurId (self):
+       curId = response.json()['rows'][-i]['doc']['_id'])
+
+       return curId
+
    def getStatusCircuit (self):
        if(response_status.json()['rows'][-1]['doc']['status'] == 1):
            return "1"
