@@ -180,7 +180,7 @@ while(True):
          "Power": description,
          "Circuit" : circuit,
          "Time" : time,
-         "_id" : str(db_id_1)
+         "_id" : time
      }
 
 
@@ -190,7 +190,7 @@ while(True):
          "Power": description_load_2,
          "Circuit" : circuit_load_2,
          "Time" : time_load_2,
-         "_id" : str(db_id_2)
+         "_id" : time
      }
      jsonDocument_load_3 = {
          "current": number_load_3,
@@ -198,7 +198,7 @@ while(True):
          "Power": description_load_3,
          "Circuit" : circuit_load_3,
          "Time" : time_load_3,
-         "_id" : str(db_id_3)
+         "_id" : time
      }
 
      jsonDocument_load_4 = {
@@ -207,7 +207,7 @@ while(True):
          "Power": description_load_4,
          "Circuit" : circuit_load_4,
          "Time" : time_load_4,
-         "_id" : str(db_id_4)
+         "_id" : time
      }
 
      jsonDocument_load_5 = {
@@ -216,7 +216,7 @@ while(True):
          "Power": description_load_5,
          "Circuit" : circuit_load_5,
          "Time" : time_load_5,
-         "_id" : str(db_id_5)
+         "_id" : time
      }
      # Create a document using the Database API.
      newDocument = myDatabase.create_document(jsonDocument)

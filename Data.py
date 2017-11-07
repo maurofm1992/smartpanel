@@ -40,8 +40,7 @@ class MofoData:
        i=0
        table = []
        while (i<7):
-           if response.json()['rows'][-i]['doc']['Power'] != 0:
-               table.append(response.json()['rows'][-i]['doc']['Power'])
+           table.append(response.json()['rows'][-i]['doc']['Power'])
            # table[i] = (response.json
            # table.insert(i,response.json()['rows'][i]['doc']['current'])
            i = i+1
