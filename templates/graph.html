@@ -14,6 +14,12 @@
 // creating date object
 var myDateIsHot = new Date()
 var myDateIsHotOneMinAgo = new Date(myDateIsHot - 60000)
+var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 60000)
+var myDateIsHot3MinAgo = new Date(myDateIsHot - 3* 60000)
+var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 60000)
+var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 60000)
+
+
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
@@ -24,7 +30,7 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-        labels: [{{time_table[0]}}, {{time_table[1]}}, {{time_table[2]}}, {{time_table[3]}}, {{time_table[4]}},{{time_table[5]}}],
+        labels: [myDateIsHot, myDateIsHotOneMinAgo, myDateIsHotTwoMinAgo, myDateIsHot3MinAgo, myDateIsHot4MinAgo,myDateIsHot5MinAgo],
         datasets: [{
             label: "My Power Usage",
             backgroundColor: 'rgb(255, 99, 132)',
