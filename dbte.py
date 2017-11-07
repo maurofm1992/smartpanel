@@ -104,7 +104,6 @@ while(True):
     print(volts[0])
     sampleData = [
        [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time],
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     sampleData_load_2 = [
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
