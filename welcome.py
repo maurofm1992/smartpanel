@@ -75,7 +75,7 @@ def WelcomeToMyapp():
     return render_template('tester.html', table = table22)
 @app.route('/myappe')
 def WelcomeToMyappe():
-    mygData = MofoData("David", 999999999)
+    mygData = MofoData()
     dtab = mygData.getDataByMinute()
     dTime = mygData.getTimeLast()
 
