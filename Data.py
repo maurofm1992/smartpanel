@@ -95,8 +95,10 @@ class MofoData:
                total_power_for_one_min += response.json()['rows'][-x]['doc']['Power']
                x += 1
 
-
-           table.append(total_power_for_one_min)
+               #since we are getting the average for 3 seconds we are only getting
+               #20 seconds worth of total power so multiply by 3 and you get one minute
+               
+           table.append(total_power_for_one_min * 3)
            # table[i] = (response.json
            # table.insert(i,response.json()['rows'][i]['doc']['current'])
            i = i+1
