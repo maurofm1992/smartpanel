@@ -89,7 +89,7 @@ def WelcomeToMyappe():
     return render_template('graph.html', table = dtab, time_table = dTime, one_min_data = dDataForOneMin)
 
 @app.route('/myappe2')
-def WelcomeToMyappe():
+def WelcomeToMyappe2():
     mygData = MofoData()
     # dtab = mygData.getDataByMinute()
     dTime = mygData.getTimeLast()
