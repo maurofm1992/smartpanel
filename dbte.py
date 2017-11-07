@@ -94,6 +94,7 @@ while(True):
 
     sume=0.00
     total_power=0
+    #kitchen = = load1
     kitchen_cur = 0
     kitchen_pow = 0
     kitchen_volt = 0
@@ -107,29 +108,29 @@ while(True):
     cur_time = datetime.datetime.now()
     awesome_cur_time = str(cur_time)
     while x < 7:
-        volts = []
+        volts = getVolts()
     # Convert the data
-        for i in range(0, 2) :
-
-            msb1 = data1[i * 3]
-            msb = data1[1 + i * 3]
-            lsb = data1[2 + i * 3]
-
-            # Convert the data to ampere
-            volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
-            if volt > 130:
-                     volt = volt /100
-            if volt<90 and volt>80:
-                volt = volt * 1.414213
-            # volt = volt * 1.414213
-            if volt<118:
-                volt = volt * 1.0173
-            volts.append(volt)
-            print("CHANNEL = " )
-            i = i+1
-            print(i )
-            i=i-1
-            print(str(volts[i])+ "  V\n")
+        # for i in range(0, 2) :
+        #
+        #     msb1 = data1[i * 3]
+        #     msb = data1[1 + i * 3]
+        #     lsb = data1[2 + i * 3]
+        #
+        #     # Convert the data to ampere
+        #     volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
+        #     if volt > 130:
+        #              volt = volt /100
+        #     if volt<90 and volt>80:
+        #         volt = volt * 1.414213
+        #     # volt = volt * 1.414213
+        #     if volt<118:
+        #         volt = volt * 1.0173
+        #     volts.append(volt)
+        #     print("CHANNEL = " )
+        #     i = i+1
+        #     print(i )
+        #     i=i-1
+        #     print(str(volts[i])+ "  V\n")
 
 
 
@@ -301,3 +302,28 @@ while(True):
     #     turnOn()
     # else:
     #     turnOff()
+def getVolts ():
+    volts = []
+# Convert the data
+    for i in range(0, 2) :
+
+        msb1 = data1[i * 3]
+        msb = data1[1 + i * 3]
+        lsb = data1[2 + i * 3]
+
+        # Convert the data to ampere
+        volt = (msb1 * 65536 + msb * 256 + lsb) / 1000.0
+        if volt > 130:
+                 volt = volt /100
+        if volt<90 and volt>80:
+            volt = volt * 1.414213
+        # volt = volt * 1.414213
+        if volt<118:
+            volt = volt * 1.0173
+        volts.append(volt)
+        print("CHANNEL = " )
+        i = i+1
+        print(i )
+        i=i-1
+        print(str(volts[i])+ "  V\n")
+    return volts
