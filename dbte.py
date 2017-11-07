@@ -12,11 +12,6 @@ from gpio_test import turnOff, turnOn
 import datetime
 import smbus
 import time
-db_id_1 = 1
-db_id_2 = 1
-db_id_3 = 1
-db_id_4 = 1
-db_id_5 = 1
 
 
 test = serial.Serial("/dev/ttyACM0",9600)
@@ -110,19 +105,19 @@ while(True):
 
     print(volts[0])
     sampleData = [
-       [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time, db_id_1]
+       [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time]
      ]
     sampleData_load_2 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_2]
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     sampleData_load_3 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_3]
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     sampleData_load_4 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_4]
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     sampleData_load_5 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_5]
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     # Create docummments using the sample data.
     # Go through each row in the array
@@ -133,7 +128,6 @@ while(True):
      description = document[2]
      circuit = document[3]
      time = document[4]
-     db_id_1 = document[5]
 
     for document in sampleData_load_2:
      # Retrieve the fields in each row.
@@ -142,7 +136,6 @@ while(True):
      description_load_2 = document[2]
      circuit_load_2 = document[3]
      time_load_2 = document[4]
-     db_id_2 = document[5]
 
     for document in sampleData_load_3:
      # Retrieve the fields in each row.
@@ -151,7 +144,6 @@ while(True):
      description_load_3 = document[2]
      circuit_load_3 = document[3]
      time_load_3 = document[4]
-     db_id_3 = document[5]
 
 
     for document in sampleData_load_4:
@@ -161,7 +153,6 @@ while(True):
      description_load_4 = document[2]
      circuit_load_4 = document[3]
      time_load_4 = document[4]
-     db_id_4 = document[5]
 
     for document in sampleData_load_5:
      # Retrieve the fields in each row.
@@ -170,7 +161,6 @@ while(True):
      description_load_5 = document[2]
      circuit_load_5 = document[3]
      time_load_5 = document[4]
-     db_id_5 = document[5]
 
      # Create a JSON document that represents
      # all the data in the row.
@@ -179,8 +169,7 @@ while(True):
          "Voltage": name,
          "Power": description,
          "Circuit" : circuit,
-         "Time" : time,
-         "_id" : db_id_1
+         "Time" : time
      }
 
 
@@ -189,16 +178,14 @@ while(True):
          "Voltage": name_load_2,
          "Power": description_load_2,
          "Circuit" : circuit_load_2,
-         "Time" : time_load_2,
-         "_id" : db_id_2
+         "Time" : time_load_2
      }
      jsonDocument_load_3 = {
          "current": number_load_3,
          "Voltage": name_load_3,
          "Power": description_load_3,
          "Circuit" : circuit_load_3,
-         "Time" : time_load_3,
-         "_id" : db_id_3
+         "Time" : time_load_3
      }
 
      jsonDocument_load_4 = {
@@ -206,8 +193,7 @@ while(True):
          "Voltage": name_load_4,
          "Power": description_load_4,
          "Circuit" : circuit_load_4,
-         "Time" : time_load_4,
-         "_id" : db_id_4
+         "Time" : time_load_4
      }
 
      jsonDocument_load_5 = {
@@ -215,8 +201,7 @@ while(True):
          "Voltage": name_load_5,
          "Power": description_load_5,
          "Circuit" : circuit_load_5,
-         "Time" : time_load_5,
-         "_id" : db_id_5
+         "Time" : time_load_5
      }
      # Create a document using the Database API.
      newDocument = myDatabase.create_document(jsonDocument)
@@ -232,11 +217,7 @@ while(True):
          print("Document '{0}' successfully created.".format(number))
 
     #increasing include_docs
-    db_id_1 += 1
-    db_id_2 += 1
-    db_id_3 += 1
-    db_id_4 += 1
-    db_id_5 += 1
+
     # dat_of_stat =  MofoData()
     # status_circuit = dat_of_stat.getStatusCircuit()
     # print(status_circuit)
