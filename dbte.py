@@ -59,7 +59,7 @@ while(True):
     volts_total =0
 
     cur_time = datetime.datetime.now()
-    awesome_cur_time = str(cur_time)
+    awesome_cur_time = str(cur_time.weekday)
     while x < 7:
         volts = getVolts()
 
