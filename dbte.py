@@ -169,21 +169,36 @@ while(True):
 
     sume2 = sume/6
     databaseName = "coolstuff"
-    databaseName_load_2 = "load 2"
+    databaseName_load_2 = "load2"
+    databaseName_load_3 = "load3"
+    databaseName_load_4 = "load4"
+    databaseName_load_5 = "load5"
 
     myDatabase = client.create_database(databaseName)
     myDatabase_load_2 = client.create_database(databaseName_load_2)
+    myDatabase_load_3 = client.create_database(databaseName_load_3)
+    myDatabase_load_4 = client.create_database(databaseName_load_4)
+    myDatabase_load_5 = client.create_database(databaseName_load_5)
 
     if myDatabase.exists():
        print ("'{0}' successfully created.\n".format(databaseName))
     if myDatabase_load_2.exists():
-       print ("'{0}' successfully created.\n".format(databaseName_load_2))       
+       print ("'{0}' successfully created.\n".format(databaseName_load_2))
     print(volts[0])
     sampleData = [
        [final_sume, volts_total_avg, total_kitchen_avg, "kitchen",awesome_cur_time],
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     sampleData_load_2 = [
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
+     ]
+    sampleData_load_3 = [
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
+     ]
+    sampleData_load_4 = [
+       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
+     ]
+    sampleData_load_5 = [
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time]
      ]
     # Create docummments using the sample data.
@@ -203,8 +218,29 @@ while(True):
      description_load_2 = document[2]
      circuit_load_2 = document[3]
      time_load_2 = document[4]
+    for document in sampleData_load_3:
+     # Retrieve the fields in each row.
+     number_load_3 = document[0]
+     name_load_3 = document[1]
+     description_load_3 = document[2]
+     circuit_load_3 = document[3]
+     time_load_3 = document[4]
 
+    for document in sampleData_load_4:
+     # Retrieve the fields in each row.
+     number_load_4 = document[0]
+     name_load_4 = document[1]
+     description_load_4 = document[2]
+     circuit_load_4 = document[3]
+     time_load_4 = document[4]
 
+    for document in sampleData_load_5:
+     # Retrieve the fields in each row.
+     number_load_5 = document[0]
+     name_load_5 = document[1]
+     description_load_5 = document[2]
+     circuit_load_5 = document[3]
+     time_load_5 = document[4]
      # Create a JSON document that represents
      # all the data in the row.
      jsonDocument = {
@@ -223,10 +259,35 @@ while(True):
          "Circuit" : circuit_load_2,
          "Time" : time_load_2
      }
+     jsonDocument_load_3 = {
+         "current": number_load_3,
+         "Voltage": name_load_3,
+         "Power": description_load_3,
+         "Circuit" : circuit_load_3,
+         "Time" : time_load_3
+     }
 
+     jsonDocument_load_4 = {
+         "current": number_load_4,
+         "Voltage": name_load_4,
+         "Power": description_load_4,
+         "Circuit" : circuit_load_4,
+         "Time" : time_load_4
+     }
+
+     jsonDocument_load_5 = {
+         "current": number_load_5,
+         "Voltage": name_load_5,
+         "Power": description_load_5,
+         "Circuit" : circuit_load_5,
+         "Time" : time_load_5
+     }
      # Create a document using the Database API.
      newDocument = myDatabase.create_document(jsonDocument)
      newDocument_load_2 = myDatabase_load_2.create_document(jsonDocument_load_2)
+     newDocument_load_3 = myDatabase_load_3.create_document(jsonDocument_load_3)
+     newDocument_load_4 = myDatabase_load_4.create_document(jsonDocument_load_4)
+     newDocument_load_5 = myDatabase_load_5.create_document(jsonDocument_load_5)
 
      # Check that the document exists in the database.
      if newDocument.exists():
