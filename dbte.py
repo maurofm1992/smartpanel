@@ -66,11 +66,11 @@ while(True):
 
         line = test.readline(4)
         #test.write(line)
-        if(x%2 == 1):
+        if(x%2 == 0):
             #kitchen_cur = int(line)
             kitchen_pow = int(line) * volts[0]
             total_kitchen_pow = total_kitchen_pow +kitchen_pow
-        if(x%2 == 0):
+        if(x%2 == 1):
             #bedroom_cur = int(line)
             bedroom_pow = int(line) * volts[0]
             total_bedroom_pow = total_bedroom_pow +bedroom_pow

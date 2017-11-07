@@ -24,12 +24,12 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-        labels: [myDateIsHot, {{time_table[1]}}, {{time_table[2]}}, {{time_table[3]}}, {{time_table[4]}},{{time_table[5]}}, {{time_table[6]}}],
+        labels: [{{time_table[0]}}, {{time_table[1]}}, {{time_table[2]}}, {{time_table[3]}}, {{time_table[4]}},{{time_table[5]}}],
         datasets: [{
             label: "My Power Usage",
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}, {{table[6]}}],
+            data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}],
         }]
     },
 
