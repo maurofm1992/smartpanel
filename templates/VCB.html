@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="images/smart-house-512.png">
+<link rel="icon" href="http://smartpanel.mybluemix.net/static/images/smart-house-512.png">
 <link href="http://smartpanel.mybluemix.net/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -33,16 +33,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 
-<body style="background-color: #15317E">
+<body>
 
-
-				<div style="align-content: center;" class="col-md-3 head-logo">
-				 	<h1 style="margin-left: 100px"><img style= "margin-top: 50px" src="images/House-iloveimg-resized%20(1).png" alt=""/></h1>
+<div class="container">
+		 <div class="header">
+				<div class="col-md-3 head-logo">
+				 	<h1><img style= "margin-bottom: 10px" src="http://smartpanel.mybluemix.net/static/images/House-iloveimg-resized%20(1).png" alt=""/></h1>
 				</div>
 				<div class="col-md-6 head-logo" style="margin-top: 45px">
-                    <h1 style="margin-top: 50PX"><a style="margin-left: 100px" href="index.html">Smart Power               Panel</a></h1>
+                    <h1><a href="index.html">Smart Power               Panel</a></h1>
+				</div>
+				<div class="col-md-3 social">
+				   <ul>
+                       <a href=login.html><button class="button button5">Log In</button> </a>
+                       <button class="button button5">Sign Up</button>
+				  </ul>
 				</div>
 				<div class="clearfix"> </div>
+		 </div>
+		 <div class="top-menu" style="border-top: 20px">
+			 <span class="menu"><img src="images/nav-icon.png"></span>
+			 <ul class="menu2">
+					 <li><a href="http://smartpanel.mybluemix.net/static/index.html">Home</a></li>
+					 <li><a href="http://smartpanel.mybluemix.net/static/index.html">About</a></li>
+                     <li><a href="http://smartpanel.mybluemix.net/static/index.html">Service</a></li>
+					 <li class="active"><a href="../../vcb">VCB</a></li>
+                     <li><a href="../../myappe">Consumption</a> </li>	
+                     <li><a href="team.html">Team</a></li>
+					 <li><a href="contact.html">Contact</a></li>
+						<div class="clearfix"></div>
+				 </ul>
+				 <!-- script-for-menu -->
+		 <script>
+					$("span.menu").click(function(){
+						$(".top-menu ul").slideToggle("slow" , function(){
+						});
+					});
+		 </script>
+		 <!-- script-for-menu -->
+
+		 </div>
+	 </div>
 
 
 
