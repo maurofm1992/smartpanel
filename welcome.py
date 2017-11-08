@@ -127,7 +127,7 @@ def my_form_post():
     text1 = request.form['Load1']
     if text1 == "Load":
         status = 1
-    else 
+    else: 
         status = 0
     processed_text = text.upper()
     if processed_text == "ON":  # the user has signal on
