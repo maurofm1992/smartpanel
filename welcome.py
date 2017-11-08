@@ -67,7 +67,8 @@ def WelcomeToMyapp():
 
 
 
-
+    #every 1 second we get data and we average over 3 seconds and p
+    #put 
 
 
 
