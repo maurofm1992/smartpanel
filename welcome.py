@@ -128,13 +128,13 @@ def my_form_post():
     # status4= 0
 
     text = request.form['text']
-    # text2 = request.form['text2']
-    # text3 = request.form['text3']
-    # text4 = request.form['text4']
+    text2 = request.form['text2']
+    text3 = request.form['text3']
+    text4 = request.form['text4']
     text = text.upper()
-    # text2 = text2.upper()
-    # text3 = text3.upper()
-    # text4 = text4.upper()
+    text2 = text2.upper()
+    text3 = text3.upper()
+    text4 = text4.upper()
 
     #value of checkbox for each load 0 or Load for On
     # load1 = request.form['Load1']
@@ -164,18 +164,18 @@ def my_form_post():
         status = 1
     else:
         status = 0
-    # if text2 == "ON":
-    #     status2 = 1
-    # else:
-    #     status2 = 0
-    # if text3 == "ON":
-    #     status3 = 1
-    # else:
-    #     status3 = 0
-    # if text4 == "ON":
-    #     status4 = 1
-    # else:
-    #     status4 = 0
+    if text2 == "ON":
+        status2 = 1
+    else:
+        status2 = 0
+    if text3 == "ON":
+        status3 = 1
+    else:
+        status3 = 0
+    if text4 == "ON":
+        status4 = 1
+    else:
+        status4 = 0
 
     # processed_text = text.upper()
     # if processed_text == "ON":  # the user has signal on
@@ -192,9 +192,9 @@ def my_form_post():
     table_name4 = "status4"
 
     add_signal(status, table_name)
-    # add_signal(status2, table_name2)
-    # add_signal(status3, table_name3)
-    # add_signal(status4, table_name4)
+    add_signal(status2, table_name2)
+    add_signal(status3, table_name3)
+    add_signal(status4, table_name4)
 
     #fix: return same page w updated JS
     return "hello"
