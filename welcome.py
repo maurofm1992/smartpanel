@@ -122,20 +122,57 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    status= 0
-    text = request.form['text']
-    text1 = request.form['Load1']
-    if text1 == "Load":
+    # status= 0
+    # status2= 0
+    # status3= 0
+    # status4= 0
+
+    # text = request.form['text']
+
+    #value of checkbox for each load 0 or Load for On
+    load1 = request.form['Load1']
+    load2 = request.form['Load2']
+    load3 = request.form['Load3']
+    load4 = request.form['Load4']
+
+    if load1 == "Load":
         status = 1
     else: 
         status = 0
-    processed_text = text.upper()
-    if processed_text == "ON":  # the user has signal on
-        status = 1
+    if load2 == "Load":
+        status2 = 1
     else:
-        status = 0
-    add_signal(status)
-    return processed_text
+        status2 = 0
+    if load3 == "Load":
+        status3 = 1
+    else:
+        status3 = 0
+    if load4 == "Load":
+        status4 = 1
+    else:
+        status4 = 0
+
+    # processed_text = text.upper()
+    # if processed_text == "ON":  # the user has signal on
+    #     status = 1
+    # else:
+    #     status = 0
+
+
+    #table_name is the variable being used to determine which load to turn on/off
+    # e.g status = load 1, status2= load 2
+    table_name = "status"
+    table_name2 = "status2"
+    table_name3 = "status3"
+    table_name4 = "status4"
+
+    add_signal(status, table_name)
+    add_signal(status2, table_name2)
+    add_signal(status3, table_name3)
+    add_signal(status4, table_name4)
+
+    #fix: return same page w updated JS
+    return render_template("VCB.html")
 
 
 

@@ -18,7 +18,7 @@ db_id_3 = 1
 db_id_4 = 1
 db_id_5 = 1
 
-
+#begin serial communication with arduino
 test = serial.Serial("/dev/ttyACM0",9600)
 
 while(True):
@@ -28,17 +28,27 @@ while(True):
                       url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
     client.connect()
     end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" + "/_all_docs?")
+    end_point_status2 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status2" + "/_all_docs?")
+    end_point_status3 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status3" + "/_all_docs?")
+    end_point_status4 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status4" + "/_all_docs?")
+
     params = {'include_docs': 'true'}
     response_status = client.r_session.get(end_point_status,params=params)
-
-    def getStatusCircuit ():
-       if(response_status.json()['rows'][-1]['doc']['status'] == 1):
+    response_status2 = client.r_session.get(end_point_status2,params=params)
+    response_status3 = client.r_session.get(end_point_status3,params=params)
+    response_status4 = client.r_session.get(end_point_status4,params=params)
+    #pass a response endpoint and check to see if the value is  0 or 1
+    def getStatusCircuit (resp):
+       if(resp.json()['rows'][-1]['doc']['status'] == 1):
            turnOn()
            return "1"
        else:
            turnOff()
            return "0"
-    getStatusCircuit()
+    getStatusCircuit(response_status)
+    getStatusCircuit(response_status2)
+    getStatusCircuit(response_status3)
+    getStatusCircuit(response_status4)
 
 
 
