@@ -122,10 +122,10 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    # status= 0
-    # status2= 0
-    # status3= 0
-    # status4= 0
+    status= 0
+    status2= 0
+    status3= 0
+    status4= 0
 
     text = request.form['text']
     text2 = request.form['text2']
@@ -162,19 +162,21 @@ def my_form_post():
 
     if text == "ON":
         status = 1
-    else:
+    elif (text =='OFF'):
         status = 0
     if text2 == "ON":
         status2 = 1
-    else:
+    elif (text2 == 'OFF'):
         status2 = 0
     if text3 == "ON":
         status3 = 1
-    else:
+    elif (text3 == 'OFF'):
+
         status3 = 0
     if text4 == "ON":
         status4 = 1
-    else:
+    elif (text4 == 'OFF'):
+
         status4 = 0
 
     # processed_text = text.upper()
@@ -197,7 +199,7 @@ def my_form_post():
     add_signal(status4, table_name4)
 
     #fix: return same page w updated JS
-    return "hello"
+    return 0
 
 
 
