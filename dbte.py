@@ -38,17 +38,17 @@ while(True):
     response_status3 = client.r_session.get(end_point_status3,params=params)
     response_status4 = client.r_session.get(end_point_status4,params=params)
     #pass a response endpoint and check to see if the value is  0 or 1
-    def getStatusCircuit (resp):
+    def getStatusCircuit (resp, pinnum):
        if(resp.json()['rows'][-1]['doc']['status'] == 1):
-           turnOn()
+           turnOn(pinnum)
            return "1"
        else:
-           turnOff()
+           turnOff(pinnum)
            return "0"
-    getStatusCircuit(response_status)
-    getStatusCircuit(response_status2)
-    getStatusCircuit(response_status3)
-    getStatusCircuit(response_status4)
+    getStatusCircuit(response_status, 4)
+    getStatusCircuit(response_status2, 17)
+    getStatusCircuit(response_status3, 27)
+    getStatusCircuit(response_status4, 22)
 
 
 
