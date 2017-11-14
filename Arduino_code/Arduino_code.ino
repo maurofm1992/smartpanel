@@ -1,17 +1,19 @@
 #include <Filters.h>
-int idea = 0; 
-int idea2 = 0; 
-int idea3 = 0; 
-int idea4 = 0; 
+int x;
+int idea1; 
+int idea2; 
+int idea3; 
+int idea4; 
 float testFrequency = 60;                     // test signal frequency (Hz)
-float windowLength = 20.0/testFrequency;     // how long to average the signal, for statistist
-int sensorValue = 0;
-int sensorValue2 = 0;
-int sensorValue3 = 0;
-int sensorValue4 = 0;
-int x =0;
-float intercept = 0.0502; // to be adjusted based on calibration testing
-float slope = 0.0451;// to be adjusted based on calibration testing
+float windowLength = 20.0/testFrequency;// how long to average the signal, for statistist
+
+int sensorValue1;
+int sensorValue2;
+int sensorValue3;
+int sensorValue4;
+
+float intercept1 = 0.0502; // to be adjusted based on calibration testing
+float slope1 = 0.0451;// to be adjusted based on calibration testing
 float intercept2 = 0.0521; // to be adjusted based on calibration testing
 float slope2 = 0.0452;// to be adjusted based on calibration testing
 float intercept3 = 0.0735; // to be adjusted based on calibration testing
@@ -19,10 +21,10 @@ float slope3 = 0.0439;// to be adjusted based on calibration testing
 float intercept4 = 0.0675; // to be adjusted based on calibration testing
 float slope4 = 0.045;// to be adjusted based on calibration testing
 
-float current_amps = 0; // estimated actual current in amps
-float current_amps2 = 0; // estimated actual current in amps
-float current_amps3 = 0; // estimated actual current in amps
-float current_amps4 = 0; // estimated actual current in amps
+float current_amps1; // estimated actual current in amps
+float current_amps2; // estimated actual current in amps
+float current_amps3; // estimated actual current in amps
+float current_amps4; // estimated actual current in amps
 
 unsigned long printPeriod = 1000; // in milliseconds
 // Track time in milliseconds since last reading 
@@ -33,25 +35,29 @@ void setup() {
 }
 
 void loop() {
+  
   RunningStatistics inputStats;                 // create statistics to look at the raw test signal
   inputStats.setWindowSecs( windowLength );
   
+  while(true){
+    
+  x = 0;
   while( x == 0 ) { 
     
-    sensorValue = analogRead(A0);  // read the analog in value:
-    inputStats.input(sensorValue);  // log to Stats function
+    sensorValue1 = analogRead(A0);  // read the analog in value:
+    inputStats.input(sensorValue1);  // log to Stats function
         
     if((unsigned long)(millis() - previousMillis) >= printPeriod) {
       previousMillis = millis();   // update time
       
       // display current values to the screen
       // convert signal sigma value to current in amps
-      current_amps = intercept + slope * inputStats.sigma();
+      current_amps1 = intercept1 + slope1 * inputStats.sigma();
       if (inputStats.sigma() < 5){
-        current_amps = 0;
+        current_amps1 = 0;
       }
-      idea = 100 * (current_amps); 
-      Serial.println(idea);
+      idea1 = 100 * (current_amps1); 
+      Serial.println(idea1);
      
       x = 1;
     }
@@ -115,6 +121,7 @@ void loop() {
       
       x = 0;
     }
+  }
   }
   
 }
