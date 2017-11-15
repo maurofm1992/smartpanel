@@ -93,15 +93,18 @@ def WelcomeToMyappe2():
     mygData = MofoData()
     # dtab = mygData.getDataByMinute()
     dTime = mygData.getTimeLast()
-    dtab = mygData.getDataByMin()
+    dtab = mygData.getDataByMin("coolstuff")
+    dtab1 = mygData.getDataByMin("load2")
+    dtab2 = mygData.getDataByMin("load3")
+    dtab3 = mygData.getDataByMin("load4")
+    dtab4 = mygData.getDataByMin("load5")
 
 
 
 
 
 
-
-    return render_template('graph.html', table = dtab, time_table = dTime)
+    return render_template('graph.html', table = dtab, table1 = dtab1, table2 = dtab2, table3 = dtab3, table4 = dtab4, time_table = dTime)
 
 
 #
