@@ -15,7 +15,7 @@
 import os
 from flask import Flask, jsonify
 # Motherfuckin Data
-from Data import MofoData
+from Data import *
 from flask import request
 from add_signal_db import add_signal
 #import dbte
@@ -76,9 +76,8 @@ def WelcomeToMyapp():
     return render_template('tester.html', table = table22)
 @app.route('/myappe')
 def WelcomeToMyappe():
-    mygData = MofoData()
-    dtab = mygData.getDataByMinute()
-    dTime = mygData.getTimeLast()
+    dtab = getDataByMinute()
+    dTime = getTimeLast()
 
 
 
@@ -90,21 +89,17 @@ def WelcomeToMyappe():
 
 @app.route('/myappe2')
 def WelcomeToMyappe2():
-    mygData = MofoData()
     # dtab = mygData.getDataByMinute()
-    dTime = mygData.getTimeLast()
-    dtab = mygData.getDataByMin("coolstuff")
-    dtab1 = mygData.getDataByMin("load2")
-    dtab2 = mygData.getDataByMin("load3")
-    dtab3 = mygData.getDataByMin("load4")
-    dtab4 = mygData.getDataByMin("load5")
+    dTime = getTimeLast()
+    dtab = getDataByMin()
+    dtab2 = getDataByMin2()
 
 
 
 
 
 
-    return render_template('graph.html', table = dtab, table1 = dtab1, table2 = dtab2, table3 = dtab3, table4 = dtab4, time_table = dTime)
+    return render_template('graph.html', table = dtab, table2 = dtab2, time_table = dTime)
 
 
 #

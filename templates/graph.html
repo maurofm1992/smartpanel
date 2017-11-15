@@ -35,8 +35,12 @@ var chart = new Chart(ctx, {
             label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
             data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}],
-            [{{table1[0]}},{{table1[1]}}],
-            [{{table2[0]}}, {{table2[1]}}],
+        },
+                      
+        {
+           label: "My power2 Usage",
+            borderColor: 'rgb(255, 99, 12)',
+            data: [{{table2[3]}}, {{table2[2]}}, {{table2[2]}}, {{table2[4]}}, {{table2[4]}}, {{table2[1]}}],
         }]
     },
 
