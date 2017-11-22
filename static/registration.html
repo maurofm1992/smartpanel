@@ -91,9 +91,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   			</span>
                 <select id="sms" name="sms" class="form-control input-md">
                   <option value="en">English</option>
-                  <option value="gu">Gujarati</option>
-                  <option value="mr">Marathi</option>
-                  <option value="hi">Hindi</option>
+                  <option value="gu">Spanish</option>
+
                 </select>
               </div>
   		</div>
@@ -117,15 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input id="first_name" name="first_name" placeholder="" class="form-control input-md" type="text">
               </div></div>
 
-              <label class="col-md-1 control-label" for="middle_name">Mid Name</label>
-              <div class="col-md-2">
-  			<div class="input-group">
-  			<span class="input-group-addon">
-  			<i class="glyphicon glyphicon-user"></i>
-  			</span>
-                <input id="middle_name" name="middle_name" placeholder="" class="form-control input-md" type="text">
-              </div>
-  		</div>
+
               <label class="col-md-1 control-label" for="last_name">Last Name</label>
               <div class="col-md-2">
   			<div class="input-group">
@@ -138,15 +129,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
             <div class="row form-group">
-              <label class="col-md-2 control-label" for="farmer_type">Farmer Type</label>
+              <label class="col-md-2 control-label" for="farmer_type">Device Type</label>
               <div class="col-md-4">
-                <label class="radio-inline"><input type="radio" name="farmer_type" value="Farmer" checked>Farmer</label>
-                <label class="radio-inline"><input type="radio" name="farmer_type" value="Politician">Politician</label>
-                <label class="radio-inline"><input type="radio" name="farmer_type" value="Retailer">Retailer</label>
-                <label class="radio-inline"><input type="radio" name="farmer_type" value="Supplier">Supplier</label>
+                <label class="radio-inline"><input type="radio" name="farmer_type" value="Farmer" checked>Raspberry Pi 3+</label>
+                <label class="radio-inline"><input type="radio" name="farmer_type" value="Politician">Raspberry Pi 2</label>
+                <label class="radio-inline"><input type="radio" name="farmer_type" value="Retailer">Raspberry Pi 1</label>
+                <label class="radio-inline"><input type="radio" name="farmer_type" value="Supplier">Other</label>
               </div>
 
-              <label class="col-md-1 control-label" for="description">Description</label>
+              <label class="col-md-1 control-label" for="description">Who installed your smaart power system?</label>
               <div class="col-md-4">
   			<div class="input-group">
   			<span class="input-group-addon">
@@ -156,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </div></div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 control-label" for="smartphone">Has Touchscreen Phone ?</label>
+              <label class="col-md-3 control-label" for="smartphone">Did you install the device into your Power panel</label>
               <div class="col-md-3">
 
                   <label class="radio-inline"><input type="radio" name="smartphone" value=true>Yes</label>
@@ -172,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
             <div class="row form-group">
-              <label class="col-md-2 control-label" for="village">Village</label>
+              <label class="col-md-2 control-label" for="village">Power supplier</label>
               <div class="col-md-2">
   		<div class="input-group">
   			<span class="input-group-addon">
@@ -204,25 +195,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   		</div>
             </div>
 
-            <div class="row form-group">
-              <label class="col-md-2 control-label" for="taluka">Taluka</label>
-              <div class="col-md-2">
-                <input id="taluka" name="taluka" placeholder="" class="form-control input-md ac_taluka" required="" type="text">
-              </div>
-
-              <label class="col-md-1 control-label" for="other_taluka">Other Taluka</label>
-              <div class="col-md-2">
-                <input id="other_taluka" name="other_taluka" disabled="true" class="form-control input-md ac_taluka" type="text">
-              </div>
-
-              <label class="col-md-1 control-label" for="post_office">Post Office</label>
-              <div class="col-md-2">
-                <input id="post_office" name="post_office" placeholder="" class="form-control input-md ac_post_office" required="" type="text">
-              </div>
-            </div>
 
             <div class="row form-group">
-              <label class="col-md-2 control-label" for="pin_code">Pin Code</label>
+              <label class="col-md-2 control-label" for="pin_code"> Device Pin Code</label>
               <div class="col-md-2">
                 <input id="pin_code" name="pin_code" placeholder="" disabled="true" class="form-control input-md" required="" type="text">
               </div>
@@ -241,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="form-group row">
               <div class="col-md-8 text-center">
-                <button id="save" name="save" class="btn btn-large btn-success"> Save Farmer Information</button>
+                <button id="save" name="save" class="btn btn-large btn-success"> Save Device Information</button>
                 <button class="btn btn-large btn-danger" type="button" onclick=history.go(-1)> Cancel </button>
               </div>
             </div>
