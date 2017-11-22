@@ -125,57 +125,57 @@ def my_form_post():
     status3= 0
     status4= 0
 
-    text = request.form['text']
-    text2 = request.form['text2']
-    text3 = request.form['text3']
-    text4 = request.form['text4']
-    text = text.upper()
-    text2 = text2.upper()
-    text3 = text3.upper()
-    text4 = text4.upper()
+#    text = request.form['text']
+#    text2 = request.form['text2']
+#    text3 = request.form['text3']
+#    text4 = request.form['text4']
+#    text = text.upper()
+#    text2 = text2.upper()
+#    text3 = text3.upper()
+#    text4 = text4.upper()
 
     #value of checkbox for each load 0 or Load for On
-    # load1 = request.form['Load1']
-    # load2 = request.form['Load2']
-    # load3 = request.form['Load3']
-    # load4 = request.form['Load4']
-    #
-    # if load1 == "Load":
-    #     status = 1
-    # else:
-    #     status = 0
-    # if load2 == "Load":
-    #     status2 = 1
-    # else:
-    #     status2 = 0
-    # if load3 == "Load":
-    #     status3 = 1
-    # else:
-    #     status3 = 0
-    # if load4 == "Load":
-    #     status4 = 1
-    # else:
-    #     status4 = 0
-
-
-    if text == "ON":
+    load1 = request.form['Load1']
+#     load2 = request.form['Load2']
+#     load3 = request.form['Load3']
+#     load4 = request.form['Load4']
+    
+    if load1 == "Load":
         status = 1
-    elif (text =='OFF'):
+    else:
         status = 0
-    if text2 == "ON":
-        status2 = 1
-    elif (text2 == 'OFF'):
-        status2 = 0
-    if text3 == "ON":
-        status3 = 1
-    elif (text3 == 'OFF'):
+#     if load2 == "Load":
+#         status2 = 1
+#     else:
+#         status2 = 0
+#     if load3 == "Load":
+#         status3 = 1
+#     else:
+#         status3 = 0
+#     if load4 == "Load":
+#         status4 = 1
+#     else:
+#         status4 = 0
 
-        status3 = 0
-    if text4 == "ON":
-        status4 = 1
-    elif (text4 == 'OFF'):
 
-        status4 = 0
+#    if text == "ON":
+#        status = 1
+#    elif (text =='OFF'):
+#        status = 0
+#    if text2 == "ON":
+#        status2 = 1
+#    elif (text2 == 'OFF'):
+#        status2 = 0
+#    if text3 == "ON":
+#        status3 = 1
+#    elif (text3 == 'OFF'):
+#
+#        status3 = 0
+#    if text4 == "ON":
+#        status4 = 1
+#    elif (text4 == 'OFF'):
+#
+#        status4 = 0
 
     # processed_text = text.upper()
     # if processed_text == "ON":  # the user has signal on
