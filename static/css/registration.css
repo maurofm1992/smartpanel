@@ -12,3 +12,6 @@ li:hover {
 {
  margin-bottom:90px;
 }
+body{
+  background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+}
