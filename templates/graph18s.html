@@ -30,11 +30,11 @@ tr:nth-child(even) {
 <script>
 // creating date object
 var myDateIsHot = new Date()
-var myDateIsHotOneMinAgo = new Date(myDateIsHot - 60000)
-var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 60000)
-var myDateIsHot3MinAgo = new Date(myDateIsHot - 3* 60000)
-var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 60000)
-var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 60000)
+var myDateIsHotOneMinAgo = new Date(myDateIsHot - 3000)
+var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 3000)
+var myDateIsHot3MinAgo = new Date(myDateIsHot - 3*3000)
+var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 3000)
+var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 3000)
 
 
 
@@ -52,29 +52,20 @@ var chart = new Chart(ctx, {
             label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
             data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}],
-        },
-
-        {
-           label: "My power2 Usage",
-            borderColor: 'rgb(255, 99, 12)',
-            data: [{{table2[3]}}, {{table2[2]}}, {{table2[2]}}, {{table2[4]}}, {{table2[4]}}, {{table2[1]}}],
-        }]
+        },]
     },
 
     // Configuration options go here
     options: {}
 });
+var fplRate = 0.065950;
+
+// document.getElementById('costtest').innerHTML = fplRate;
+
 </script>
-<<<<<<< HEAD
-<p><h1>Total cost:</h1>
-    <h4>$</h4>
-    
-    
-    </p>
-=======
 <h1> Cost Summary : David Gabay </h1>
 <h2> Usage for past hour for all circuits </h2>
-<h5>Usage is based on FPL rate of $0.12.5/kWh</h5>
+<h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>
 <table>
   <tr>
     <th>Circuit</th>
@@ -84,7 +75,7 @@ var chart = new Chart(ctx, {
   <tr>
     <td>Kitchen</td>
     <td>63.5 Watts</td>
-    <td>$0.0083.8</td>
+    <td id="costtest">$</td>
   </tr>
   <tr>
     <td>Kitchen 2</td>
@@ -112,18 +103,8 @@ var chart = new Chart(ctx, {
     <td>$0.83.8</td>
   </tr>
 </table>
->>>>>>> 25e3d10cdb044c654ab4d307a79a2167c9fdc900
 
-<p id="demo"></p>
 
-<!-- <script>
-
-var obj = JSON.parse('smartpanel.mybluemix.net/api/people');
-document.getElementById("demo").innerHTML = obj.name + ", " + obj.name;
-
-</script> -->
-
-<!-- <p>Take a look at <a href="json_demo.txt" target="_blank">json_demo.txt</a></p> -->
 
 </body>
 </html>

@@ -68,7 +68,7 @@ def WelcomeToMyapp():
 
 
     #every 1 second we get data and we average over 3 seconds and p
-    #put 
+    #put
 
 
 
@@ -85,7 +85,7 @@ def WelcomeToMyappe():
 
 
 
-    return render_template('graph.html', table = dtab, time_table = dTime)
+    return render_template('graph18s.html', table = dtab, time_table = dTime)
 
 @app.route('/myappe2')
 def WelcomeToMyappe2():
