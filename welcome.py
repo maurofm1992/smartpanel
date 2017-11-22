@@ -49,7 +49,7 @@ def Welcome():
 
 
 @app.route('/registration')
-def Welcome():
+def Register():
     return redirect(url_for('static', filename='registration.html'))
 
 
