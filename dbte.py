@@ -7,7 +7,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 from functions import *
-from Data import MofoData
+from Data import *
 from gpio_test import turnOff, turnOn
 import datetime
 import smbus
