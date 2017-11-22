@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <title>My power usage</title>
 </head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 <body>
 <canvas id="myChart"></canvas>
 
@@ -36,7 +53,7 @@ var chart = new Chart(ctx, {
             borderColor: 'rgb(255, 99, 132)',
             data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}],
         },
-                      
+
         {
            label: "My power2 Usage",
             borderColor: 'rgb(255, 99, 12)',
@@ -48,7 +65,46 @@ var chart = new Chart(ctx, {
     options: {}
 });
 </script>
-<p>{{table[0]}} {{table[1]}}{{table[2]}}{{table[3]}}</p>
+<h1> Cost Summary : David Gabay </h1>
+<h2> Usage for past hour for all circuits </h2>
+<h5>Usage is based on FPL rate of $0.12.5/kWh</h5>
+<table>
+  <tr>
+    <th>Circuit</th>
+    <th>Usage</th>
+    <th>Cost/ Last Hour</th>
+  </tr>
+  <tr>
+    <td>Kitchen</td>
+    <td>63.5 Watts</td>
+    <td>$0.0083.8</td>
+  </tr>
+  <tr>
+    <td>Kitchen 2</td>
+    <td>39.5 Watts</td>
+    <td>$0.0053.8</td>
+  </tr>
+  <tr>
+    <td>Bedroom</td>
+    <td>83.5 Watts</td>
+    <td>$0.0103.2</td>
+  </tr>
+  <tr>
+    <td>Bedroom 2</td>
+    <td>13.5 Watts</td>
+    <td>$0.0023.8</td>
+  </tr>
+  <tr>
+    <td>Patio</td>
+    <td>150.5 Watts</td>
+    <td>$0.0183.8</td>
+  </tr>
+  <tr>
+    <td>Air Conditioning</td>
+    <td>1030.1 Watts</td>
+    <td>$0.83.8</td>
+  </tr>
+</table>
 
 <p id="demo"></p>
 
