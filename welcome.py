@@ -48,6 +48,11 @@ def Welcome():
     return redirect(url_for('static', filename='index.html'))
 
 
+@app.route('/registration')
+def Welcome():
+    return redirect(url_for('static', filename='registration.html'))
+
+
 @app.route('/myapp')
 def WelcomeToMyapp():
 
@@ -139,7 +144,7 @@ def my_form_post():
 #     load2 = request.form['Load2']
 #     load3 = request.form['Load3']
 #     load4 = request.form['Load4']
-    
+
     if load1 == "Load":
         status = 1
     else:
