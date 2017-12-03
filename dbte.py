@@ -62,6 +62,14 @@ while(True):
     kitchen_pow = 0
     kitchen_volt = 0
     total_kitchen_pow =0
+    load3_cur = 0
+    load3_pow = 0
+    load3_volt = 0
+    total_load3_pow =0
+    load4_cur = 0
+    load4_pow = 0
+    load4_volt = 0
+    total_load4_pow =0
     bedroom_cur = 0
     bedroom_pow = 0
     bedroom_volt = 0
@@ -70,22 +78,28 @@ while(True):
 
     cur_time = datetime.datetime.now()
     awesome_cur_time = str(cur_time)
-    while x < 7:
+    while x < 5:
         volts = getVolts()
 
 
         line = test.readline(4)
         #test.write(line)
-        if(x%2 == 0):
+        if(x == 1):
             #kitchen_cur = int(line)
             kitchen_pow = int(line) * volts[0]
             total_kitchen_pow = total_kitchen_pow +kitchen_pow
-        if(x%2 == 1):
+        if(x == 2):
             #bedroom_cur = int(line)
             bedroom_pow = int(line) * volts[0]
             total_bedroom_pow = total_bedroom_pow +bedroom_pow
-
-
+        if(x == 3):
+            #bedroom_cur = int(line)
+            load3_pow = int(line) * volts[0]
+            total_load3_pow = total_load3_pow +load3_pow
+        if(x == 4):
+            #bedroom_cur = int(line)
+            load4_pow = int(line) * volts[0]
+            total_load4_pow = total_load4_pow +load4_pow
         power = volts[0] * int(line)
         total_power = power + total_power
         volts_total = volts[0] + volts_total
@@ -94,8 +108,10 @@ while(True):
         print("current = " + str(float(line)/100) + "A\n")
         x = x + 1
     total_power_avg = total_power /100 /6
-    total_kitchen_avg = total_kitchen_pow/100/3
-    total_bedroom_avg = total_bedroom_pow / 100/ 3
+    total_kitchen_avg = total_kitchen_pow/100
+    total_bedroom_avg = total_bedroom_pow / 100
+    total_load3_avg = total_load3_pow / 100
+    total_load4_avg = total_load4_pow / 100
     volts_total_avg = volts_total/6
     sume=sume/6
     final_sume = sume / 100
@@ -104,6 +120,8 @@ while(True):
     print("Avg volts : " + str(volts_total_avg))
     print("Avg Load 1 : " + str(total_kitchen_avg) + "  W")
     print("Avg Load 2 : " + str(total_bedroom_avg) + "  W")
+    print("Avg Load 3 : " + str(total_load3_avg) + "  W")
+    print("Avg Load 4 : " + str(total_load4_avg) + "  W")
     print("Avg current : " + str(final_sume))
 
     #calls create db funct in functions
@@ -126,10 +144,10 @@ while(True):
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_2]
      ]
     sampleData_load_3 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_3]
+       [final_sume, 25, total_load3_avg,"load 3",awesome_cur_time, db_id_3]
      ]
     sampleData_load_4 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_4]
+       [final_sume, 25, total_load4_avg,"load 4",awesome_cur_time, db_id_4]
      ]
     sampleData_load_5 = [
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_5]
