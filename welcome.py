@@ -125,10 +125,6 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    status= 0
-    status2= 0
-    status3= 0
-    status4= 0
 
 #    text = request.form['text']
 #    text2 = request.form['text2']
