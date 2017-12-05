@@ -16,15 +16,13 @@ def add_signal(status, load):
 
 
     databaseName = load
+    client.delete_database(databaseName)
 
+    # if myDatabase.exists():
+    #     print("'{0}' successfully created.\n".format(databaseName))
+    #     client.delete_database(databaseName)
     myDatabase = client.create_database(databaseName)
 
-    if myDatabase.exists():
-        print("'{0}' successfully created.\n".format(databaseName))
-        client.delete_database(databaseName)
-    myDatabase = client.create_database(databaseName)
-    if myDatabase.exists():
-        print("'{0}' successfully created.\n".format(databaseName))    
 
 
     sampleData = [
