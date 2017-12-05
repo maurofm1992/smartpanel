@@ -53,7 +53,7 @@ while(True):
 
 
 
-
+    x = 1
 
     sume=0.00
     total_power=0
@@ -75,13 +75,14 @@ while(True):
     bedroom_volt = 0
     total_bedroom_pow = 0
     volts_total =0
+
     cur_time = datetime.datetime.now()
     awesome_cur_time = str(cur_time)
-    x = 1
     while x < 5:
         volts = getVolts()
-        line = test.readline(4)
 
+
+        line = test.readline(4)
         #test.write(line)
         if(x == 1):
             #kitchen_cur = int(line)
@@ -150,7 +151,7 @@ while(True):
      ]
     sampleData_load_5 = [
        [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_5]
-     ]
+
     # Create docummments using the sample data.
     # Go through each row in the array
     for document in sampleData:
