@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90a16349-c80f-46d5-8879-3c1dd8a84d92" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/VCB.html" afterPath="$PROJECT_DIR$/templates/VCB.html" />
-    </list>
+    <list default="true" id="90a16349-c80f-46d5-8879-3c1dd8a84d92" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,11 +44,11 @@
       <file leaf-file-name="dbte.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dbte.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="89" column="62" lean-forward="false" selection-start-line="89" selection-start-column="62" selection-end-line="89" selection-end-column="62" />
+            <state relative-caret-position="464">
+              <caret line="84" column="2" lean-forward="true" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
               <folding>
                 <element signature="e#23#36#0" expanded="true" />
-                <marker date="1512434252735" expanded="true" signature="9286:9300" ph="..." />
+                <marker date="1512441410487" expanded="true" signature="9285:9299" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,8 +114,8 @@
         <option value="$PROJECT_DIR$/add_signal_db.py" />
         <option value="$PROJECT_DIR$/gpio_test.py" />
         <option value="$PROJECT_DIR$/welcome.py" />
-        <option value="$PROJECT_DIR$/dbte.py" />
         <option value="$PROJECT_DIR$/templates/VCB.html" />
+        <option value="$PROJECT_DIR$/dbte.py" />
       </list>
     </option>
   </component>
@@ -603,7 +601,7 @@
           <caret line="240" column="51" lean-forward="false" selection-start-line="240" selection-start-column="51" selection-end-line="240" selection-end-column="51" />
           <folding>
             <element signature="e#23#36#0" expanded="true" />
-            <marker date="1512434252735" expanded="true" signature="9286:9300" ph="..." />
+            <marker date="1512441410487" expanded="true" signature="9285:9299" ph="..." />
           </folding>
         </state>
       </provider>
@@ -639,7 +637,7 @@
           <caret line="183" column="51" lean-forward="true" selection-start-line="183" selection-start-column="51" selection-end-line="183" selection-end-column="51" />
           <folding>
             <element signature="e#23#36#0" expanded="true" />
-            <marker date="1512434252735" expanded="true" signature="9286:9300" ph="..." />
+            <marker date="1512441410487" expanded="true" signature="9285:9299" ph="..." />
           </folding>
         </state>
       </provider>
@@ -914,11 +912,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dbte.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="89" column="62" lean-forward="false" selection-start-line="89" selection-start-column="62" selection-end-line="89" selection-end-column="62" />
+        <state relative-caret-position="464">
+          <caret line="84" column="2" lean-forward="true" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
           <folding>
             <element signature="e#23#36#0" expanded="true" />
-            <marker date="1512434252735" expanded="true" signature="9286:9300" ph="..." />
+            <marker date="1512441410487" expanded="true" signature="9285:9299" ph="..." />
           </folding>
         </state>
       </provider>
