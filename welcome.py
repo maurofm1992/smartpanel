@@ -140,27 +140,27 @@ def my_form_post():
 #    text4 = text4.upper()
 
     #value of checkbox for each load 0 or Load for On
-    # load1 = request.form['Load1']
-    # load2 = request.form['Load2']
-    # load3 = request.form['Load3']
-    # load4 = request.form['Load4']
+    load1 = request.form['Load1']
+    load2 = request.form['Load2']
+    load3 = request.form['Load3']
+    load4 = request.form['Load4']
 
-    # if load1 == "Load":
-    #     status = 1
-    # else:
-    #     status = 0
-    # if load2 == "Load":
-    #     status2 = 1
-    # else:
-    #     status2 = 0
-    # if load3 == "Load":
-    #     status3 = 1
-    # else:
-    #     status3 = 0
-    # if load4 == "Load":
-    #     status4 = 1
-    # else:
-    #     status4 = 0
+    if load1 == "Load":
+        status = 1
+    else:
+        status = 0
+    if load2 == "Load":
+        status2 = 1
+    else:
+        status2 = 0
+    if load3 == "Load":
+        status3 = 1
+    else:
+        status3 = 0
+    if load4 == "Load":
+        status4 = 1
+    else:
+        status4 = 0
 
 
 #    if text == "ON":
