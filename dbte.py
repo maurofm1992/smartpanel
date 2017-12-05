@@ -51,6 +51,23 @@ while(True):
     getStatusCircuit(response_status4, 22)
 
 
+    def calculate_power():
+        volts = getVolts()
+        line = test.readline(4)
+        pow_calc = int(line) * volts[0]
+        return pow_calc
+
+
+
+
+    x = 1
+    while x<4:
+        load_pow = calculate_power()
+        print(x)
+
+        x = x + 1
+
+
 
 
     x = 1
