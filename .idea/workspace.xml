@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90a16349-c80f-46d5-8879-3c1dd8a84d92" name="Default" comment="" />
+    <list default="true" id="90a16349-c80f-46d5-8879-3c1dd8a84d92" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,11 +47,11 @@
       <file leaf-file-name="dbte.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dbte.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <element signature="e#23#36#0" expanded="true" />
-                <marker date="1512442599435" expanded="true" signature="9280:9294" ph="..." />
+                <marker date="1512447079494" expanded="true" signature="9650:9664" ph="..." />
               </folding>
             </state>
           </provider>
@@ -451,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510678415309</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added that shit back">
+      <created>1512447080688</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1512447080688</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -603,7 +612,7 @@
           <caret line="240" column="51" lean-forward="false" selection-start-line="240" selection-start-column="51" selection-end-line="240" selection-end-column="51" />
           <folding>
             <element signature="e#23#36#0" expanded="true" />
-            <marker date="1512442599435" expanded="true" signature="9280:9294" ph="..." />
+            <marker date="1512447079494" expanded="true" signature="9650:9664" ph="..." />
           </folding>
         </state>
       </provider>
@@ -640,7 +649,7 @@
           <caret line="183" column="51" lean-forward="true" selection-start-line="183" selection-start-column="51" selection-end-line="183" selection-end-column="51" />
           <folding>
             <element signature="e#23#36#0" expanded="true" />
-            <marker date="1512442599435" expanded="true" signature="9280:9294" ph="..." />
+            <marker date="1512447079494" expanded="true" signature="9650:9664" ph="..." />
           </folding>
         </state>
       </provider>
@@ -919,11 +928,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dbte.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="e#23#36#0" expanded="true" />
-            <marker date="1512442599435" expanded="true" signature="9280:9294" ph="..." />
+            <marker date="1512447079494" expanded="true" signature="9650:9664" ph="..." />
           </folding>
         </state>
       </provider>
