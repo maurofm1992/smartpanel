@@ -107,12 +107,12 @@ while(True):
         sume = sume + int(line)
         print("current = " + str(float(line)/100) + "A\n")
         x = x + 1
-    total_power_avg = total_power /100 /6
+    total_power_avg = total_power /100 /4
     total_kitchen_avg = total_kitchen_pow/100
     total_bedroom_avg = total_bedroom_pow / 100
     total_load3_avg = total_load3_pow / 100
     total_load4_avg = total_load4_pow / 100
-    volts_total_avg = volts_total/6
+    volts_total_avg = volts_total/4
     sume=sume/6
     final_sume = sume / 100
     sume1 = sume/15
