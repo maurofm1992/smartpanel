@@ -98,13 +98,15 @@ def WelcomeToMyappe2():
     dTime = getTimeLast()
     dtab = getDataByMin()
     dtab2 = getDataByMin2()
+    dtab3 = getDataByMin3()
+    dtab4 = getDataByMin4()
 
 
 
 
 
 
-    return render_template('graph.html', table = dtab, table2 = dtab2, time_table = dTime)
+    return render_template('graph.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
 
 
 #
