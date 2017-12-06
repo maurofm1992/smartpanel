@@ -21,36 +21,59 @@ db_id_5 = 1
 #begin serial communication with arduino
 test = serial.Serial("/dev/ttyACM0",9600)
 
-while(True):
-
-    client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
-                      "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
-                      url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
-    client.connect()
-    end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" + "/_all_docs?")
-    end_point_status2 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status2" + "/_all_docs?")
-    end_point_status3 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status3" + "/_all_docs?")
-    end_point_status4 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status4" + "/_all_docs?")
-
-    params = {'include_docs': 'true'}
-    response_status = client.r_session.get(end_point_status,params=params)
-    response_status2 = client.r_session.get(end_point_status2,params=params)
-    response_status3 = client.r_session.get(end_point_status3,params=params)
-    response_status4 = client.r_session.get(end_point_status4,params=params)
-    #pass a response endpoint and check to see if the value is  0 or 1
-    def getStatusCircuit (resp, pinnum):
+def getStatusCircuit (resp, pinnum):
+       print(resp.json()['rows'][-1]['doc']['status'])  
        if(resp.json()['rows'][-1]['doc']['status'] == 1):
            turnOn(pinnum)
-           return "1"
        else:
            turnOff(pinnum)
-           return "0"
-    getStatusCircuit(response_status, 4)
-    getStatusCircuit(response_status2, 17)
-    getStatusCircuit(response_status3, 27)
-    getStatusCircuit(response_status4, 22)
 
+while(True):
+       
+    y=1   
+    while(y<5):   
+       client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
+                      "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
+                      url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
+       client.connect()
+   
+       stupi= 4    
+       end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" +str(y)+ "/_all_docs?")
+       params = {'include_docs': 'true'}
 
+       response_status = client.r_session.get(end_point_status,params=params)
+       if y==1:
+          stupi=4
+       elif y==2:
+          stupi = 17
+       elif y==3:
+          stupi = 27
+       elif y==4:
+          stupi = 22    
+       getStatusCircuit(response_status, stupi)
+       client.disconnect()
+       y= y+1
+##    end_point_status2 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status2" + "/_all_docs?")
+##    end_point_status3 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status3" + "/_all_docs?")
+##    end_point_status4 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status4" + "/_all_docs?")
+##    end_point_status5 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status5" + "/_all_docs?")
+##
+##    
+##    params = {'include_docs': 'true'}
+##    response_status = client.r_session.get(end_point_status,params=params)
+##    response_status2 = client.r_session.get(end_point_status2,params=params)
+##    response_status3 = client.r_session.get(end_point_status3,params=params)
+##    response_status4 = client.r_session.get(end_point_status4,params=params)
+##    response_status5 = client.r_session.get(end_point_status5,params=params)
+
+##    #pass a response endpoint and check to see if the value is  0 or 1
+##    
+##    print("Before GET Status Circuit")
+##    getStatusCircuit(response_status, 4)
+##    getStatusCircuit(response_status2, 17)
+##    getStatusCircuit(response_status3, 27)
+##    getStatusCircuit(response_status4, 22)
+##    getStatusCircuit(response_status5, 4)
     def calculate_power():
         volts = getVolts()
         line = test.readline(4)
@@ -61,9 +84,11 @@ while(True):
 
 
     x = 1
-    while x<4:
+    while x<5:
         load_pow = calculate_power()
+        
         print(x)
+        print(load_pow)
 
         x = x + 1
 
@@ -99,8 +124,6 @@ while(True):
         volts = getVolts()
 
         line = test.readline(4)
-        loads[x] = [int(line) * volts[0]]
-        print ("load:" + str(x) + "    " + loads[x])
 
         #test.write(line)
         if(x == 1):
@@ -292,3 +315,4 @@ while(True):
     #     turnOn()
     # else:
     #     turnOff()
+##    client.disconnect()
