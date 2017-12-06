@@ -195,12 +195,14 @@ def my_form_post():
     table_name2 = "status2"
     table_name3 = "status3"
     table_name4 = "status4"
-
-    add_signal(status, table_name)
-    add_signal(status2, table_name2)
-    add_signal(status3, table_name3)
-    print("HERE IS THE ADD SIGNAL FUNCTION")
     add_signal(status4, table_name4)
+    add_signal(status3, table_name3)
+    add_signal(status2, table_name2)
+    add_signal(status, table_name)
+
+
+    print("HERE IS THE ADD SIGNAL FUNCTION")
+
 
     #fix: return same page w updated JS
     return 0
