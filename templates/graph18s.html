@@ -52,7 +52,7 @@ var chart = new Chart(ctx, {
             label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
             data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}],
-        },]
+        }]
     },
 
     // Configuration options go here
@@ -63,6 +63,7 @@ var fplRate = 0.065950;
 // document.getElementById('costtest').innerHTML = fplRate;
 
 </script>
+{{table[0]}}{{table[1]}}
 <h1> Cost Summary : David Gabay </h1>
 <h2> Usage for past hour for all circuits </h2>
 <h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>

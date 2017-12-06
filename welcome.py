@@ -92,7 +92,45 @@ def WelcomeToMyappe():
 
 
     return render_template('graph18s.html', table = dtab, time_table = dTime)
+@app.route('/myappe_load2')
+def WelcomeToMyappe_load2():
+    dtab = getDataBySecond("2")
+    dTime = getTimeLast()
+    print(dtab)
 
+
+
+
+
+
+
+    return render_template('graph18s.html', table = dtab, time_table = dTime)
+@app.route('/myappe_load3')
+def WelcomeToMyappe_load3():
+    dtab = getDataBySecond("3")
+    dTime = getTimeLast()
+    print(dtab)
+
+
+
+
+
+
+
+    return render_template('graph18s.html', table = dtab, time_table = dTime)
+@app.route('/myappe_load4')
+def WelcomeToMyappe_load4():
+    dtab = getDataByMinute4()
+    dTime = getTimeLast()
+    print(dtab)
+
+
+
+
+
+
+
+    return render_template('graph18s.html', table = dtab, time_table = dTime)
 @app.route('/myappe2')
 def WelcomeToMyappe2():
     # dtab = mygData.getDataByMinute()
