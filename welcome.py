@@ -141,7 +141,7 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    status= 1
+    status= 0
     status2= 1
     status3= 1
     status4= 1

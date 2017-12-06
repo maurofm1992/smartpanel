@@ -22,22 +22,22 @@ db_id_5 = 1
 test = serial.Serial("/dev/ttyACM0",9600)
 
 def getStatusCircuit (resp, pinnum):
-       print(resp.json()['rows'][-1]['doc']['status'])  
+       print(resp.json()['rows'][-1]['doc']['status'])
        if(resp.json()['rows'][-1]['doc']['status'] == 1):
            turnOn(pinnum)
        else:
            turnOff(pinnum)
 
 while(True):
-       
-    y=1   
-    while(y<5):   
+
+    y=1
+    while(y<5):
        client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
                       "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
                       url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
        client.connect()
-   
-       stupi= 4    
+
+       stupi= 4
        end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" +str(y)+ "/_all_docs?")
        params = {'include_docs': 'true'}
 
@@ -49,7 +49,7 @@ while(True):
        elif y==3:
           stupi = 27
        elif y==4:
-          stupi = 22    
+          stupi = 22
        getStatusCircuit(response_status, stupi)
        client.disconnect()
        y= y+1
@@ -58,7 +58,7 @@ while(True):
 ##    end_point_status4 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status4" + "/_all_docs?")
 ##    end_point_status5 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status5" + "/_all_docs?")
 ##
-##    
+##
 ##    params = {'include_docs': 'true'}
 ##    response_status = client.r_session.get(end_point_status,params=params)
 ##    response_status2 = client.r_session.get(end_point_status2,params=params)
@@ -67,7 +67,7 @@ while(True):
 ##    response_status5 = client.r_session.get(end_point_status5,params=params)
 
 ##    #pass a response endpoint and check to see if the value is  0 or 1
-##    
+##
 ##    print("Before GET Status Circuit")
 ##    getStatusCircuit(response_status, 4)
 ##    getStatusCircuit(response_status2, 17)
@@ -86,7 +86,7 @@ while(True):
     x = 1
     while x<5:
         load_pow = calculate_power()
-        
+
         print(x)
         print(load_pow)
 
@@ -149,7 +149,10 @@ while(True):
         sume = sume + int(line)
         print("current = " + str(float(line)/100) + "A\n")
         x = x + 1
-    total_power_avg = total_power /100 /6
+
+
+
+    total_power_avg = total_power /100 /4
     total_kitchen_avg = total_kitchen_pow/100
     total_bedroom_avg = total_bedroom_pow / 100
     total_load3_avg = total_load3_pow / 100
