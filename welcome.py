@@ -222,7 +222,7 @@ def my_form_post():
 
 
     #fix: return same page w updated JS
-    return 0
+    return render_template("VCB.html")
 
 
 
