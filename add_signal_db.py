@@ -12,7 +12,10 @@ client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
                   url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
 client.connect()
 def add_signal(status, load):
-
+    client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
+                      "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
+                      url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
+    client.connect()
 
 
     databaseName = load
@@ -50,3 +53,4 @@ def add_signal(status, load):
         # Check that the document exists in the database.
         if newDocument.exists():
             print("Document '{0}' successfully created.".format(number))
+        client.disconnect()
