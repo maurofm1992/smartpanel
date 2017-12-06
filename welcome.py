@@ -83,6 +83,7 @@ def WelcomeToMyapp():
 def WelcomeToMyappe():
     dtab = getDataByMinute()
     dTime = getTimeLast()
+    print(dtab)
 
 
 
