@@ -107,7 +107,21 @@ def WelcomeToMyappe2():
 
 
     return render_template('graph.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
+@app.route('/all_loads_usage_18s')
+def WelcomeToMyappe3():
+    # dtab = mygData.getDataByMinute()
+    dTime = getTimeLast()
+    dtab = getDataByMinute()
+    dtab2 = getDataByMinute2()
+    dtab3 = getDataByMinute3()
+    dtab4 = getDataByMinute4()
 
+
+
+
+
+
+    return render_template('graph_18_mult.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
 
 #
 # @app.route('/api/people')
