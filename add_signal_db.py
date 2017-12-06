@@ -16,6 +16,7 @@ def add_signal(status, load):
 
 
     databaseName = load
+    myDatabase = client.create_database(databaseName)
     client.delete_database(databaseName)
 
     # if myDatabase.exists():
