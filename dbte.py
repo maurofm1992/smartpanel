@@ -23,25 +23,20 @@ test = serial.Serial("/dev/ttyACM0",9600)
 
 def getStatusCircuit (resp, pinnum):
        print(resp.json()['rows'][-1]['doc']['status'])
+
        if(resp.json()['rows'][-1]['doc']['status'] == 1):
            turnOn(pinnum)
        else:
            turnOff(pinnum)
 
 while(True):
-
-    y=1
-    while(y<5):
-       client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
+    client = Cloudant("39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix",
                       "48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff",
                       url="https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com")
-       client.connect()
-
-       stupi= 4
-       end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" +str(y)+ "/_all_docs?")
-       params = {'include_docs': 'true'}
-
-       response_status = client.r_session.get(end_point_status,params=params)
+    
+    y=1
+    while(y<5):
+       stupi= 4           
        if y==1:
           stupi=4
        elif y==2:
@@ -50,21 +45,19 @@ while(True):
           stupi = 27
        elif y==4:
           stupi = 22
+       client.connect()
+
+##       stupi= 4
+
+       end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" +str(y)+ "/_all_docs?")
+       params = {'include_docs': 'true'}
+
+       response_status = client.r_session.get(end_point_status,params=params)
+       
        getStatusCircuit(response_status, stupi)
-       client.disconnect()
+##       client.disconnect()
        y= y+1
-##    end_point_status2 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status2" + "/_all_docs?")
-##    end_point_status3 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status3" + "/_all_docs?")
-##    end_point_status4 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status4" + "/_all_docs?")
-##    end_point_status5 = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status5" + "/_all_docs?")
-##
-##
-##    params = {'include_docs': 'true'}
-##    response_status = client.r_session.get(end_point_status,params=params)
-##    response_status2 = client.r_session.get(end_point_status2,params=params)
-##    response_status3 = client.r_session.get(end_point_status3,params=params)
-##    response_status4 = client.r_session.get(end_point_status4,params=params)
-##    response_status5 = client.r_session.get(end_point_status5,params=params)
+
 
 ##    #pass a response endpoint and check to see if the value is  0 or 1
 ##
@@ -81,16 +74,16 @@ while(True):
         return pow_calc
 
 
-
-
-    x = 1
-    while x<5:
-        load_pow = calculate_power()
-
-        print(x)
-        print(load_pow)
-
-        x = x + 1
+##
+##
+##    x = 1
+##    while x<5:
+##        load_pow = calculate_power()
+##
+##        print(x)
+##        print(load_pow)
+##
+##        x = x + 1
 
 
 
@@ -120,17 +113,19 @@ while(True):
     flager =False
     cur_time = datetime.datetime.now()
     awesome_cur_time = str(cur_time)
+    q=0
+    while (q<4):
+       line = test.readline(4)
+       if line == "load":
+           line = test.readline(4)   
+           break
     while x < 5:
+
+           
         volts = getVolts()
 
-        line = test.readline(4)
-        if (line != "load1" and not flager):
-            continue
-        else:
-            flager =True
-
-        if (flager):
-            x=1
+        
+        
 
         #test.write(line)
         if(x == 1):
@@ -156,6 +151,7 @@ while(True):
         sume = sume + int(line)
         print("current = " + str(float(line)/100) + "A\n")
         x = x + 1
+        line = test.readline(4)
 
 
 
@@ -181,7 +177,7 @@ while(True):
     myDatabase_load_2 = create_db("load2")
     myDatabase_load_3 = create_db("load3")
     myDatabase_load_4 = create_db("load4")
-    myDatabase_load_5 = create_db("load5")
+
 
 
 
@@ -201,9 +197,7 @@ while(True):
     sampleData_load_4 = [
        [final_sume, 25, total_load4_avg,"load 4",awesome_cur_time, db_id_4]
      ]
-    sampleData_load_5 = [
-       [final_sume, 25, total_bedroom_avg,"bedroom",awesome_cur_time, db_id_5]
-     ]
+
 
     # Create docummments using the sample data.
     # Go through each row in the array
@@ -244,14 +238,6 @@ while(True):
      time_load_4 = document[4]
      db_id_4 = document[5]
 
-    for document in sampleData_load_5:
-     # Retrieve the fields in each row.
-     number_load_5 = document[0]
-     name_load_5 = document[1]
-     description_load_5 = document[2]
-     circuit_load_5 = document[3]
-     time_load_5 = document[4]
-     db_id_5 = document[5]
 
      # Create a JSON document that represents
      # all the data in the row.
@@ -291,26 +277,11 @@ while(True):
          "_id" : time
      }
 
-     jsonDocument_load_5 = {
-         "current": number_load_5,
-         "Voltage": name_load_5,
-         "Power": description_load_5,
-         "Circuit" : circuit_load_5,
-         "Time" : time_load_5,
-         "_id" : time
-     }
      # Create a document using the Database API.
      newDocument = myDatabase.create_document(jsonDocument)
      newDocument_load_2 = myDatabase_load_2.create_document(jsonDocument_load_2)
      newDocument_load_3 = myDatabase_load_3.create_document(jsonDocument_load_3)
      newDocument_load_4 = myDatabase_load_4.create_document(jsonDocument_load_4)
-     newDocument_load_5 = myDatabase_load_5.create_document(jsonDocument_load_5)
-
-     # Check that the document exists in the database.
-     if newDocument.exists():
-         print("Document '{0}' successfully created.".format(number))
-     if newDocument_load_2.exists():
-         print("Document '{0}' successfully created.".format(number))
 
     #increasing include_docs
     db_id_1 += 1
@@ -325,4 +296,4 @@ while(True):
     #     turnOn()
     # else:
     #     turnOff()
-##    client.disconnect()
+    client.disconnect()
