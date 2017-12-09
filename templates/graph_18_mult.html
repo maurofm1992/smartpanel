@@ -47,7 +47,9 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-        labels: [myDateIsHot, myDateIsHotOneMinAgo, myDateIsHotTwoMinAgo, myDateIsHot3MinAgo, myDateIsHot4MinAgo,myDateIsHot5MinAgo],
+      // labels: [myDateIsHot, myDateIsHotOneMinAgo, myDateIsHotTwoMinAgo, myDateIsHot3MinAgo, myDateIsHot4MinAgo,myDateIsHot5MinAgo],
+      labels: ["1","2","3","4","5","6"],
+
         datasets: [{
             label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
@@ -72,6 +74,7 @@ var chart = new Chart(ctx, {
             data: [{{table4[0]}}, {{table4[1]}}, {{table4[2]}}, {{table4[3]}}, {{table4[4]}}, {{table4[5]}}],
         }]
     },
+    
 
 
     // Configuration options go here
