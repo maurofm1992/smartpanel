@@ -43,6 +43,7 @@ void loop() {
     
   x = 0;
   while( x == 0 ) { 
+
     
     sensorValue1 = analogRead(A0);  // read the analog in value:
     inputStats.input(sensorValue1);  // log to Stats function
@@ -57,6 +58,7 @@ void loop() {
         current_amps1 = 0;
       }
       idea1 = 100 * (current_amps1); 
+      Serial.println("load1");
       Serial.println(idea1);
      
       x = 1;

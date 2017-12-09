@@ -95,7 +95,7 @@ while(True):
 
 
 
-    x = 1
+    x = 0
     loads = []
     sume=0.00
     total_power=0
@@ -117,13 +117,20 @@ while(True):
     bedroom_volt = 0
     total_bedroom_pow = 0
     volts_total =0
-
+    flager =False
     cur_time = datetime.datetime.now()
     awesome_cur_time = str(cur_time)
     while x < 5:
         volts = getVolts()
 
         line = test.readline(4)
+        if (line != "load1" and not flager):
+            continue
+        else:
+            flager =True
+
+        if (flager):
+            x=1
 
         #test.write(line)
         if(x == 1):
