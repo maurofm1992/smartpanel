@@ -34,11 +34,9 @@ def getDataByMinute():
    client.connect()
 
    end_point = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "coolstuff" + "/_all_docs?")
-   end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status" + "/_all_docs?")
 
    params = {'include_docs': 'true'}
    response = client.r_session.get(end_point,params=params)
-   response_status = client.r_session.get(end_point_status,params=params)
    i=1
    table = []
    while (i<7):
@@ -56,11 +54,9 @@ def getDataByMinute2():
    client.connect()
 
    end_point = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "load2" + "/_all_docs?")
-   end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status2" + "/_all_docs?")
 
    params = {'include_docs': 'true'}
    response = client.r_session.get(end_point,params=params)
-   response_status = client.r_session.get(end_point_status,params=params)
    i=1
    table = []
    while (i<7):
@@ -78,11 +74,9 @@ def getDataByMinute3():
    client.connect()
 
    end_point = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "load3" + "/_all_docs?")
-   end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status3" + "/_all_docs?")
 
    params = {'include_docs': 'true'}
    response = client.r_session.get(end_point,params=params)
-   response_status = client.r_session.get(end_point_status,params=params)
    i=1
    table = []
    while (i<7):
@@ -99,11 +93,9 @@ def getDataByMinute4():
    client.connect()
 
    end_point = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "load4" + "/_all_docs?")
-   end_point_status = '{0}/{1}'.format("https://39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix:48e26645f504209f85b4c44d74a4cb14bc0d059a22b361534b78f406a513f8ff@39a4348e-3ce1-40cd-b016-1f85569d409e-bluemix.cloudant.com", "status4" + "/_all_docs?")
 
    params = {'include_docs': 'true'}
    response = client.r_session.get(end_point,params=params)
-   response_status = client.r_session.get(end_point_status,params=params)
    i=1
    table = []
    while (i<7):
