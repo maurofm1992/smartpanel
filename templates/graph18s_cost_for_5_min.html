@@ -23,7 +23,6 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-  <h1>Usage for all Loads (kWh)</h1>
 <canvas id="myChart"></canvas>
 
 
@@ -49,35 +48,13 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-      // labels: [myDateIsHot, myDateIsHotOneMinAgo, myDateIsHotTwoMinAgo, myDateIsHot3MinAgo, myDateIsHot4MinAgo,myDateIsHot5MinAgo],
-      labels: ["1","2","3","4","5","6"],
-
+        labels: ["1","2","3","4","5","6"],
         datasets: [{
-            label: "Load 1 cost",
+            label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
-            data: [{{table[0]}}, {{table[1]}}, {{table[2]}}, {{table[3]}}, {{table[4]}}, {{table[5]}}],
-        },
-
-        {
-           label: "Load 2 cost",
-            borderColor: 'rgb(255, 99, 12)',
-            data: [{{table2[0]}}, {{table2[1]}}, {{table2[2]}}, {{table2[3]}}, {{table2[4]}}, {{table2[5]}}],
-        },
-
-        {
-           label: "Load 3 cost",
-            borderColor: 'rgb(255, 2, 12)',
-            data: [{{table3[0]}}, {{table3[1]}}, {{table3[2]}}, {{table3[3]}}, {{table3[4]}}, {{table3[5]}}],
-        },
-
-        {
-           label: "Load 4 cost",
-            borderColor: 'rgb(2, 99, 12)',
-            data: [{{table4[0]}}, {{table4[1]}}, {{table4[2]}}, {{table4[3]}}, {{table4[4]}}, {{table4[5]}}],
+            data: [{{table[0]}}*0.00000001832, {{table[1]}}*0.00000001832, {{table[2]}}*0.00000001832, {{table[3]}}*0.00000001832, {{table[4]}}*0.00000001832, {{table[5]}}*0.00000001832],
         }]
     },
-
-
 
     // Configuration options go here
     options: {}
@@ -87,6 +64,7 @@ var fplRate = 0.065950;
 // document.getElementById('costtest').innerHTML = fplRate;
 
 </script>
+{{table[0]}}{{table[1]}}
 <h1> Cost Summary : David Gabay </h1>
 <h2> Usage for past hour for all circuits </h2>
 <h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>

@@ -70,67 +70,85 @@ def WelcomeToMyapp():
     table22 =response.json()['rows'][0]['doc']['current'],5,6
     # table22 = 4,5,6
 
-
-
-    #every 1 second we get data and we average over 3 seconds and p
-    #put
-
-
-
-
     return render_template('tester.html', table = table22)
+
+
+
 @app.route('/myappe')
 def WelcomeToMyappe():
     dtab = getDataByMinute()
     dTime = getTimeLast()
-    print(dtab)
-
-
-
-
-
 
 
     return render_template('graph18s.html', table = dtab, time_table = dTime)
+
+
 @app.route('/myappe_load2')
 def WelcomeToMyappe_load2():
     dtab = getDataBySecond("2")
     dTime = getTimeLast()
-    print(dtab)
-
-
-
-
-
 
 
     return render_template('graph18s.html', table = dtab, time_table = dTime)
+
+
 @app.route('/myappe_load3')
 def WelcomeToMyappe_load3():
     dtab = getDataBySecond("3")
     dTime = getTimeLast()
-    print(dtab)
-
-
-
-
 
 
 
     return render_template('graph18s.html', table = dtab, time_table = dTime)
+
+
 @app.route('/myappe_load4')
 def WelcomeToMyappe_load4():
-    dtab = getDataByMinute4()
+    dtab = getDataBySecond("4")
     dTime = getTimeLast()
-    print(dtab)
-
-
-
-
-
 
 
     return render_template('graph18s.html', table = dtab, time_table = dTime)
+
+# code for loading cost of each load for 5 minute
+###################################################
+
+@app.route('/load1_cost_5m')
+def load1Cost5min():
+    dtab = getDataFor5min("1")
+    dTime = getTimeLast()
+
+
+    return render_template('graph18s_cost_for_5_min.html', table = dtab, time_table = dTime)
+
+
+@app.route('/load2_cost_5m')
+def load2Cost5min():
+    dtab = getDataFor5min("2")
+    dTime = getTimeLast()
+
+
+    return render_template('graph18s_cost_for_5_min.html', table = dtab, time_table = dTime)
+
+
+@app.route('/load3_cost_5m')
+def load3Cost5min():
+    dtab = getDataFor5min("3")
+    dTime = getTimeLast()
+
+
+    return render_template('graph18s_cost_for_5_min.html', table = dtab, time_table = dTime)
+
+
+@app.route('/load4_cost_5m')
+def load4Cost5min():
+    dtab = getDataFor5min("4")
+    dTime = getTimeLast()
+
+
+    return render_template('graph18s_cost_for_5_min.html', table = dtab, time_table = dTime)
+
+
 @app.route('/myappe2')
 def WelcomeToMyappe2():
     # dtab = mygData.getDataByMinute()
@@ -141,11 +159,9 @@ def WelcomeToMyappe2():
     dtab4 = getDataByMin4()
 
 
-
-
-
-
     return render_template('graph.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
+
+
 @app.route('/all_loads_usage_18s')
 def WelcomeToMyappe3():
     # dtab = mygData.getDataByMinute()
@@ -154,10 +170,6 @@ def WelcomeToMyappe3():
     dtab2 = getDataByMinute2()
     dtab3 = getDataByMinute3()
     dtab4 = getDataByMinute4()
-
-
-
-
 
 
     return render_template('graph_18_mult_use.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
@@ -178,18 +190,6 @@ def WelcomeToMyappeCost():
 
 
     return render_template('graph_18_mult.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
-
-
-
-#
-# @app.route('/api/people')
-# def GetPeople():
-#     list = [
-#         {'name': 'John', 'age': table22},
-#         {'name': 'Bill', 'val': 26}
-#     ]
-#     return jsonify(results=list)
-#
 
 
 @app.route('/vcb')
