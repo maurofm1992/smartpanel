@@ -192,6 +192,54 @@ def WelcomeToMyappeCost():
     return render_template('graph_18_mult.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
 
 
+#############################################################################################################
+# code for displaying a "mock 24 hour chart" takes last 24 data for that load and calculates usage for an hour
+#############################################################################################################
+
+@app.route('/l1_24')
+def load1_24():
+    dtab = getDataFor24("1")
+    dTime = getTimeLast()
+
+
+
+    return render_template('graph24.html', table = dtab, time_table = dTime)
+
+
+@app.route('/l2_24')
+def load2_24():
+    dtab = getDataFor24("2")
+    total_cost = 0
+    for data in dtab:
+        total_cost += (data*0.000065950)
+    dTime = getTimeLast()
+
+
+
+    return render_template('graph24.html', table = dtab, time_table = dTime, cost_total= total_cost)
+
+
+@app.route('/l3_24')
+def load3_24():
+    dtab = getDataFor24("3")
+    dTime = getTimeLast()
+
+
+
+    return render_template('graph24.html', table = dtab, time_table = dTime)
+
+
+@app.route('/l4_24')
+def load4_24():
+    dtab = getDataFor24("4")
+    dTime = getTimeLast()
+
+
+
+    return render_template('graph24.html', table = dtab, time_table = dTime)
+
+
+
 @app.route('/vcb')
 def my_form():
     return render_template("VCB.html")

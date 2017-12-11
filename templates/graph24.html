@@ -23,9 +23,10 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-  <h1>Cost for Load ($) per minute</h1>
+  <h1>Cost for Load (kWh) on 24hr Period</h1>
 
 <canvas id="myChart"></canvas>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
@@ -39,9 +40,11 @@ var myDateIsHot3MinAgo = new Date(myDateIsHot - 3*3000)
 var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 3000)
 var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 3000)
 
-
+var fplRate = 0.000065950;
 
 var ctx = document.getElementById('myChart').getContext('2d');
+var cost = {{cost_total}}
+cost = cost.toPrecision(3)
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
@@ -50,23 +53,22 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-        labels: ["1","2","3","4","5","6"],
+        labels: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
         datasets: [{
             label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
-            data: [{{table[0]}}*0.00000001832, {{table[1]}}*0.00000001832, {{table[2]}}*0.00000001832, {{table[3]}}*0.00000001832, {{table[4]}}*0.00000001832, {{table[5]}}*0.00000001832],
+            data: [{{table[0]}}*fplRate, {{table[1]}}*fplRate, {{table[2]}}*fplRate, {{table[3]}}*fplRate, {{table[4]}}*fplRate, {{table[5]}}*fplRate, {{table[6]}}*fplRate, {{table[7]}}*fplRate, {{table[8]}}*fplRate, {{table[9]}}*fplRate, {{table[10]}}*fplRate, {{table[11]}}*fplRate, {{table[12]}}*fplRate, {{table[13]}}*fplRate, {{table[14]}}*fplRate, {{table[15]}}*fplRate, {{table[16]}}*fplRate, {{table[17]}}*fplRate, {{table[18]}}*fplRate, {{table[19]}}*fplRate, {{table[20]}}*fplRate, {{table[21]}}*fplRate, {{table[22]}}*fplRate, {{table[23]}}*fplRate],
         }]
     },
 
     // Configuration options go here
     options: {}
 });
-var fplRate = 0.065950;
 
 // document.getElementById('costtest').innerHTML = fplRate;
 
 </script>
-{{table[0]}}{{table[1]}}
+<h1>Total cost for 24hr Period:  $  {{cost_total}}.toPrecision(3)  </h1>
 <h1> Cost Summary : David Gabay </h1>
 <h2> Usage for past hour for all circuits </h2>
 <h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>
