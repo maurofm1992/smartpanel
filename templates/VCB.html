@@ -34,6 +34,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <style>
+
+.box{
+    background-color: #ffa800;
+    color: black;
+    padding:12px;
+    font-size: 12px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    margin-left: 90px;
+    cursor: pointer;  
+    font-weight: bold;
+    }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.show {display:block;}
+
 .switch {
 	position: center;
 	display: block;
@@ -215,8 +248,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	            <div class= col-md-3>
 								<h2><a style ="color: black" href="http://smartpanel.mybluemix.net/myappe">Safety Load 1</a></h2>
-                                <h3 style="text-align: center"><a style ="color: black" href="http://smartpanel.mybluemix.net/myappe">Cost</a></h3>
-
+                                <div style = "margin-top: 12px" class="dropdown">
+                                        <span class="box">Graphs</span>
+                                            <div class="dropdown-content">
+                                                <a href="http://smartpanel.mybluemix.net/load1_cost_5m">Cost (5 Minutes)</a>
+                                                <a href="http://smartpanel.mybluemix.net/l1_24">Cost (1 Day)</a>
+                                                <a href="http://smartpanel.mybluemix.net/myappe">Consumption</a>
+                                            </div>
+                                    </div>
 	            </div>
 
 	            <div class="col-md-3" style="align-content: center">
@@ -251,7 +290,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	            <div class= col-md-3>
 								<h2><a style ="color: black"href="http://smartpanel.mybluemix.net/myappe_load2">Appliance 2</a></h2>
-                                <h3 style="text-align: center"><a style ="color: black" href="http://smartpanel.mybluemix.net/myappe">Cost</a></h3>
+                                <div style = "margin-top: 12px" class="dropdown">
+                                        <span class="box">Graphs</span>
+                                            <div class="dropdown-content">
+                                                <a href="http://smartpanel.mybluemix.net/load2_cost_5m">Cost (5 Minutes)</a>
+                                                <a href="http://smartpanel.mybluemix.net/l2_24">Cost (1 Day)</a>
+                                                <a href="http://smartpanel.mybluemix.net/myappe_load2">Consumption</a>
+                                            </div>
+                                    </div>
 
 	            </div>
 
@@ -267,7 +313,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	            <div class= col-md-3>
 								<h2><a style ="color: black" href="http://smartpanel.mybluemix.net/myappe_load3">Appliance 3</a></h2>
-                                <h3 style="text-align: center"><a style ="color: black" href="http://smartpanel.mybluemix.net/myappe">Cost</a></h3>
+                                  <div style = "margin-top: 12px" class="dropdown">
+                                        <span class="box">Graphs</span>
+                                            <div class="dropdown-content">
+                                                <a href="http://smartpanel.mybluemix.net/load3_cost_5m">Cost (5 Minutes)</a>
+                                                <a href="http://smartpanel.mybluemix.net/l3_24">Cost (1 Day)</a>
+                                                <a href="http://smartpanel.mybluemix.net/myappe_load3">Consumption</a>
+                                            </div>
+                                    </div>
 
 	            </div>
 
@@ -307,7 +360,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	            <div class= col-md-3>
 								<h2><a style ="color: black"href="http://smartpanel.mybluemix.net/myappe_load4">Appliance 4</a></h2>
-                                <h3 style="text-align: center"><a style ="color: black" href="http://smartpanel.mybluemix.net/myappe">Cost</a></h3>
+                                    <div style = "margin-top: 12px" class="dropdown">
+                                        <span class="box">Graphs</span>
+                                            <div class="dropdown-content">
+                                                <a href="http://smartpanel.mybluemix.net/load4_cost_5m">Cost (5 Minutes)</a>
+                                                <a href="http://smartpanel.mybluemix.net/l4_24">Cost (1 Day)</a>
+                                                <a href="http://smartpanel.mybluemix.net/myappe_load4">Consumption</a>
+                                            </div>
+                                    </div>
 
 	            </div>
 
@@ -339,7 +399,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           </tr>
                           <tr>
                             <td><h2 style="color: black">Consumption</h2></td>
-                            <td><h2><a style ="color: black"href="http://smartpanel.mybluemix.net/all_loads_usage_18s">6 Minutes</a></h2></td>
+                            <td><h2><a style ="color: black"href="http://smartpanel.mybluemix.net/myappe2">6 Minutes</a></h2></td>
                           </tr>
                           <tr>
                             <td><h2 style="color: black">Cost</h2></td>
