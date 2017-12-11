@@ -200,10 +200,12 @@ def WelcomeToMyappeCost():
 def load1_24():
     dtab = getDataFor24("1")
     dTime = getTimeLast()
+    total_cost = 0
+    for data in dtab:
+        total_cost += (data*0.000065950)
 
 
-
-    return render_template('graph24.html', table = dtab, time_table = dTime)
+    return render_template('graph24.html', table = dtab, time_table = dTime,  cost_total= total_cost)
 
 
 @app.route('/l2_24')
@@ -222,21 +224,27 @@ def load2_24():
 @app.route('/l3_24')
 def load3_24():
     dtab = getDataFor24("3")
+    total_cost = 0
+    for data in dtab:
+        total_cost += (data*0.000065950)
     dTime = getTimeLast()
 
 
 
-    return render_template('graph24.html', table = dtab, time_table = dTime)
+    return render_template('graph24.html', table = dtab, time_table = dTime,  cost_total= total_cost)
 
 
 @app.route('/l4_24')
 def load4_24():
     dtab = getDataFor24("4")
+    total_cost = 0
+    for data in dtab:
+        total_cost += (data*0.000065950)
     dTime = getTimeLast()
 
 
 
-    return render_template('graph24.html', table = dtab, time_table = dTime)
+    return render_template('graph24.html', table = dtab, time_table = dTime,  cost_total= total_cost)
 
 
 
