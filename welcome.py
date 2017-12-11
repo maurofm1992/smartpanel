@@ -153,10 +153,10 @@ def load4Cost5min():
 def WelcomeToMyappe2():
     # dtab = mygData.getDataByMinute()
     dTime = getTimeLast()
-    dtab = getDataByMin()
-    dtab2 = getDataByMin2()
-    dtab3 = getDataByMin3()
-    dtab4 = getDataByMin4()
+    dtab = getDataFor5min("2")
+    dtab2 = getDataFor5min("2")
+    dtab3 = getDataFor5min("3")
+    dtab4 = getDataFor5min("4")
 
 
     return render_template('graph.html', table = dtab, table2 = dtab2, table3 = dtab3, table4 = dtab4,time_table = dTime)
