@@ -89,7 +89,7 @@ while(True):
      # Retrieve the fields in each row.
      number_load_4 = document[0]
      time_load_4 = document[1]
-
+     
 
      # Create a JSON document that represents
      # all the data in the row.
