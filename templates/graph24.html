@@ -33,18 +33,18 @@ tr:nth-child(even) {
 <!-- creating a chart with the data -->
 <script>
 // creating date object
-var myDateIsHot = new Date()
-var myDateIsHotOneMinAgo = new Date(myDateIsHot - 3000)
-var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 3000)
-var myDateIsHot3MinAgo = new Date(myDateIsHot - 3*3000)
-var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 3000)
-var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 3000)
+// var myDateIsHot = new Date()
+// var myDateIsHotOneMinAgo = new Date(myDateIsHot - 3000)
+// var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 3000)
+// var myDateIsHot3MinAgo = new Date(myDateIsHot - 3*3000)
+// var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 3000)
+// var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 3000)
 
 var fplRate = 0.000065950;
 
 var ctx = document.getElementById('myChart').getContext('2d');
-var cost = {{cost_total}}
-cost = cost.toPrecision(3)
+// var cost = {{cost_total}}
+// cost = cost.toPrecision(3)
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
@@ -62,13 +62,39 @@ var chart = new Chart(ctx, {
     },
 
     // Configuration options go here
-    options: {}
+    options: {
+      scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Cost Per Hour ($)'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Hour'
+            }
+          }]
+        }
+
+
+
+
+
+    }
 });
 
 // document.getElementById('costtest').innerHTML = fplRate;
 
 </script>
-<h1>Total cost for 24hr Period:  $  {{cost_total}}.toPrecision(3)  </h1>
+<h1>Total cost for 24hr Period:  $  <script>
+                                            var t = {{cost_total}}
+                                            var t = t.toPrecision(3)
+                                          document.write(t)
+
+                                        </script>
+  </h1>
 <h1> Cost Summary : David Gabay </h1>
 <h2> Usage for past hour for all circuits </h2>
 <h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>

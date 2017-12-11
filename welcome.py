@@ -124,7 +124,8 @@ def load1Cost5min():
 
 @app.route('/load2_cost_5m')
 def load2Cost5min():
-    dtab = getDataFor5min("2")
+    # dtab = getDataFor5min("2")
+    dtab = getDataFromMinTable("2")
     dTime = getTimeLast()
 
 
@@ -133,7 +134,8 @@ def load2Cost5min():
 
 @app.route('/load3_cost_5m')
 def load3Cost5min():
-    dtab = getDataFor5min("3")
+    # dtab = getDataFor5min("3")
+    dtab = getDataFromMinTable("3")
     dTime = getTimeLast()
 
 
@@ -142,7 +144,8 @@ def load3Cost5min():
 
 @app.route('/load4_cost_5m')
 def load4Cost5min():
-    dtab = getDataFor5min("4")
+    # dtab = getDataFor5min("4")
+    dtab = getDataFromMinTable("4")
     dTime = getTimeLast()
 
 

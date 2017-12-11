@@ -31,12 +31,12 @@ tr:nth-child(even) {
 <!-- creating a chart with the data -->
 <script>
 // creating date object
-var myDateIsHot = new Date()
-var myDateIsHotOneMinAgo = new Date(myDateIsHot - 60000)
-var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 60000)
-var myDateIsHot3MinAgo = new Date(myDateIsHot - 3* 60000)
-var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 60000)
-var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 60000)
+// var myDateIsHot = new Date()
+// var myDateIsHotOneMinAgo = new Date(myDateIsHot - 60000)
+// var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 60000)
+// var myDateIsHot3MinAgo = new Date(myDateIsHot - 3* 60000)
+// var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 60000)
+// var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 60000)
 
 
 
@@ -49,7 +49,7 @@ var chart = new Chart(ctx, {
     // You must leave the color of the graph pink MAURICIO!!!!!!! or
     // you will ruin the entire project!
     data: {
-        labels: [myDateIsHot, myDateIsHotOneMinAgo, myDateIsHotTwoMinAgo, myDateIsHot3MinAgo, myDateIsHot4MinAgo,myDateIsHot5MinAgo],
+        labels: ["1","2","3","4","5","6"],
         datasets: [{
             label: "My Power Usage",
             borderColor: 'rgb(255, 99, 132)',
