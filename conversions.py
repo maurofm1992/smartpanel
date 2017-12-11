@@ -1,5 +1,7 @@
 import string
-
+import datetime
+import time
+from functions import *
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -16,7 +18,7 @@ def getDataFor5min(load):
    response = client.r_session.get(end_point,params=params)
 
    i=1
-   table = []
+   table = 0
    while (i<2):
        #make a function that adds all the data for past min
        #each db entry is an average of 3 seconds
@@ -33,7 +35,7 @@ def getDataFor5min(load):
            #since we are getting the average for 3 seconds we are only getting
            #20 seconds worth of total power so multiply by 3 and you get one minute
 
-       table.append(total_power_for_one_min)
+       table= total_power_for_one_min
        # table[i] = (response.json
        # table.insert(i,response.json()['rows'][i]['doc']['current'])
        i = i+1
@@ -52,7 +54,7 @@ while(True):
 
     cur_time = datetime.datetime.now()
     awesome_cur_time = str(cur_time)
-
+    print("working")
     myDatabase_load_2 = create_db("load2_min")
     myDatabase_load_3 = create_db("load3_min")
     myDatabase_load_4 = create_db("load4_min")
@@ -98,16 +100,16 @@ while(True):
 
      jsonDocument_load_2 = {
          "data": number_load_2,
-         "_id" : time
+         "_id" : time_load_2
      }
      jsonDocument_load_3 = {
          "data": number_load_3,
-         "_id" : time
+         "_id" : time_load_3
      }
 
      jsonDocument_load_4 = {
          "data": number_load_4,
-         "_id" : time
+         "_id" : time_load_4
      }
 
      # Create a document using the Database API.
