@@ -251,6 +251,26 @@ def load4_24():
     return render_template('graph24.html', table = dtab, time_table = dTime,  cost_total= total_cost)
 
 
+@app.route('/all_loads_compare')
+def all_loads():
+    total_cost2 = 0
+    total_cost3 = 0
+    total_cost4 = 0
+    dtab2 = getDataFor24("2")
+    for data in dtab2:
+        total_cost2 += (data*0.000065950)
+    dtab3 = getDataFor24("3")
+    for data3 in dtab3:
+        total_cost3 += (data3*0.000065950)
+    dtab4 = getDataFor24("4")
+    for data4 in dtab4:
+        total_cost4 += (data4*0.000065950)
+
+
+
+    return render_template('graphCmp.html', table2 = dtab2, table3 = dtab3, table4 = dtab4,    cost_total2= total_cost2, cost_total3= total_cost3, cost_total4= total_cost4 )
+
+
 
 @app.route('/vcb')
 def my_form():

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My power usage</title>
+    <meta http-equiv="refresh" content="3">
+</head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<body>
+  <h1>Cost for Load (kWh) on 24hr Period</h1>
+
+<canvas id="myChart"></canvas>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<!-- creating a chart with the data -->
+<script>
+// creating date object
+// var myDateIsHot = new Date()
+// var myDateIsHotOneMinAgo = new Date(myDateIsHot - 3000)
+// var myDateIsHotTwoMinAgo = new Date(myDateIsHot - 2* 3000)
+// var myDateIsHot3MinAgo = new Date(myDateIsHot - 3*3000)
+// var myDateIsHot4MinAgo = new Date(myDateIsHot - 4* 3000)
+// var myDateIsHot5MinAgo = new Date(myDateIsHot - 5* 3000)
+
+var fplRate = 0.000065950;
+
+var ctx = document.getElementById('myChart').getContext('2d');
+// var cost = {{cost_total}}
+// cost = cost.toPrecision(3)
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    // You must leave the color of the graph pink MAURICIO!!!!!!! or
+    // you will ruin the entire project!
+    data: {
+        labels: ["Load 2","Load 3","Load 4"],
+        datasets: [{
+            label: "My Power Usage",
+            borderColor: 'rgb(255, 99, 132)',
+            data: [{{cost_total2}},{{cost_total3}}, {{cost_total4}}],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Total cost for 24 hr per load ($)'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Load'
+            }
+          }]
+        }
+
+
+
+
+
+    }
+});
+
+
+// var ctx2 = document.getElementById('myChart2').getContext('2d');
+// // var cost = {{cost_total}}
+// // cost = cost.toPrecision(3)
+// var chart2 = new Chart(ctx2, {
+//     // The type of chart we want to create
+//     type: 'line',
+//
+//     // The data for our dataset
+//     // You must leave the color of the graph pink MAURICIO!!!!!!! or
+//     // you will ruin the entire project!
+//     data: {
+//         labels: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+//         datasets: [{
+//             label: "Load2",
+//             borderColor: 'rgb(255, 99, 132)',
+//             data: [{{table2[0]}}*fplRate, {{table2[1]}}*fplRate, {{table2[2]}}*fplRate, {{table2[3]}}*fplRate, {{table2[4]}}*fplRate, {{table2[5]}}*fplRate, {{table2[6]}}*fplRate, {{table2[7]}}*fplRate, {{table2[8]}}*fplRate, {{table2[9]}}*fplRate, {{table2[10]}}*fplRate, {{table2[11]}}*fplRate, {{table2[12]}}*fplRate, {{table2[13]}}*fplRate, {{table2[14]}}*fplRate, {{table2[15]}}*fplRate, {{table2[16]}}*fplRate, {{table2[17]}}*fplRate, {{table2[18]}}*fplRate, {{table2[19]}}*fplRate, {{table2[20]}}*fplRate, {{table2[21]}}*fplRate, {{table2[22]}}*fplRate, {{table2[23]}}*fplRate],
+//         },{
+//             label: "Load 3",
+//             borderColor: 'rgb(255, 9, 12)',
+//             data: [{{table3[0]}}*fplRate, {{table3[1]}}*fplRate, {{table3[2]}}*fplRate, {{table3[3]}}*fplRate, {{table3[4]}}*fplRate, {{table3[5]}}*fplRate, {{table3[6]}}*fplRate, {{table3[7]}}*fplRate, {{table3[8]}}*fplRate, {{table3[9]}}*fplRate, {{table3[10]}}*fplRate, {{table3[11]}}*fplRate, {{table3[12]}}*fplRate, {{table3[13]}}*fplRate, {{table3[14]}}*fplRate, {{table3[15]}}*fplRate, {{table3[16]}}*fplRate, {{table3[17]}}*fplRate, {{table3[18]}}*fplRate, {{table3[19]}}*fplRate, {{table3[20]}}*fplRate, {{table3[21]}}*fplRate, {{table3[22]}}*fplRate, {{table3[23]}}*fplRate],
+//         },{
+//             label: "Load4",
+//             borderColor: 'rgb(2, 99, 32)',
+//             data: [{{table4[0]}}*fplRate, {{table4[1]}}*fplRate, {{table4[2]}}*fplRate, {{table4[3]}}*fplRate, {{table4[4]}}*fplRate, {{table4[5]}}*fplRate, {{table4[6]}}*fplRate, {{table4[7]}}*fplRate, {{table4[8]}}*fplRate, {{table4[9]}}*fplRate, {{table4[10]}}*fplRate, {{table4[11]}}*fplRate, {{table4[12]}}*fplRate, {{table4[13]}}*fplRate, {{table4[14]}}*fplRate, {{table4[15]}}*fplRate, {{table4[16]}}*fplRate, {{table4[17]}}*fplRate, {{table4[18]}}*fplRate, {{table4[19]}}*fplRate, {{table4[20]}}*fplRate, {{table4[21]}}*fplRate, {{table4[22]}}*fplRate, {{table4[23]}}*fplRate],
+//         }  ]
+//     },
+//
+//     // Configuration options go here
+//     options: {
+//       scales: {
+//           yAxes: [{
+//             scaleLabel: {
+//               display: true,
+//               labelString: 'Cost Per Hour ($)'
+//             }
+//           }],
+//           xAxes: [{
+//             scaleLabel: {
+//               display: true,
+//               labelString: 'Hour'
+//             }
+//           }]
+//         }
+//
+//
+//
+//
+//
+//     }
+// });
+
+// document.getElementById('costtest').innerHTML = fplRate;
+
+</script>
+<h1>Total cost for 24hr Period: Load 2: $  <script>
+                                            var t = {{cost_total2}}
+                                            var t = t.toPrecision(3)
+                                          document.write(t)
+
+                                        </script>
+  </h1>
+  <h1>Total cost for 24hr Period: Load 3: $  <script>
+                                              var t = {{cost_total3}}
+                                              var t = t.toPrecision(3)
+                                            document.write(t)
+
+                                          </script>
+    </h1>
+    <h1>Total cost for 24hr Period: Load 4: $  <script>
+                                                var t = {{cost_total4}}
+                                                var t = t.toPrecision(3)
+                                              document.write(t)
+
+                                            </script>
+      </h1>
+      <canvas id="myChart2"></canvas>
+
+<h1> Cost Summary : David Gabay </h1>
+<h2> Usage for past hour for all circuits </h2>
+<h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>
+<table>
+  <tr>
+    <th>Circuit</th>
+    <th>Usage</th>
+    <th>Cost/ Last Hour</th>
+  </tr>
+  <tr>
+    <td>Kitchen</td>
+    <td>63.5 Watts</td>
+    <td id="costtest">$</td>
+  </tr>
+  <tr>
+    <td>Kitchen 2</td>
+    <td>39.5 Watts</td>
+    <td>$0.0053.8</td>
+  </tr>
+  <tr>
+    <td>Bedroom</td>
+    <td>83.5 Watts</td>
+    <td>$0.0103.2</td>
+  </tr>
+  <tr>
+    <td>Bedroom 2</td>
+    <td>13.5 Watts</td>
+    <td>$0.0023.8</td>
+  </tr>
+  <tr>
+    <td>Patio</td>
+    <td>150.5 Watts</td>
+    <td>$0.0183.8</td>
+  </tr>
+  <tr>
+    <td>Air Conditioning</td>
+    <td>1030.1 Watts</td>
+    <td>$0.83.8</td>
+  </tr>
+</table>
+
+
+
+</body>
+</html>
