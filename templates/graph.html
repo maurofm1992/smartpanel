@@ -21,7 +21,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-<body>
+<body style = "background-color: #283655">
 <canvas id="myChart"></canvas>
 
 
@@ -77,52 +77,48 @@ var chart = new Chart(ctx, {
     options: {}
 });
 </script>
-<p><h1>Total cost:</h1>
-    <h4>$</h4>
+<div style = "text-align: center">
+<h1 style = "color: #ffa800"> Cost Summary : David Gabay </h1>
+</div>
 
-
-    </p>
-<h1> Cost Summary : David Gabay </h1>
-<h2> Usage for past hour for all circuits </h2>
-<h5>Usage is based on FPL rate of $0.12.5/kWh</h5>
-<table>
-  <tr>
-    <th>Circuit</th>
-    <th>Usage</th>
-    <th>Cost/ Last Hour</th>
-  </tr>
-  <tr>
-    <td>Kitchen</td>
-    <td>63.5 Watts</td>
-    <td>$0.0083.8</td>
-  </tr>
-  <tr>
-    <td>Kitchen 2</td>
-    <td>39.5 Watts</td>
-    <td>$0.0053.8</td>
-  </tr>
-  <tr>
-    <td>Bedroom</td>
-    <td>83.5 Watts</td>
-    <td>$0.0103.2</td>
-  </tr>
-  <tr>
-    <td>Bedroom 2</td>
-    <td>13.5 Watts</td>
-    <td>$0.0023.8</td>
-  </tr>
-  <tr>
-    <td>Patio</td>
-    <td>150.5 Watts</td>
-    <td>$0.0183.8</td>
-  </tr>
-  <tr>
-    <td>Air Conditioning</td>
-    <td>1030.1 Watts</td>
-    <td>$0.83.8</td>
-  </tr>
-</table>
-
+        <table style = "background-color: #ffa800">
+          <tr>
+            <th>Circuit</th>
+            <th>Usage</th>
+            <th>Cost/ Last Hour</th>
+          </tr>
+          <tr>
+            <td>Kitchen</td>
+            <td>63.5 Watts</td>
+            <td>$0.0083.8</td>
+          </tr>
+          <tr>
+            <td>Kitchen 2</td>
+            <td>39.5 Watts</td>
+            <td>$0.0053.8</td>
+          </tr>
+          <tr>
+            <td>Bedroom</td>
+            <td>83.5 Watts</td>
+            <td>$0.0103.2</td>
+          </tr>
+          <tr>
+            <td>Bedroom 2</td>
+            <td>13.5 Watts</td>
+            <td>$0.0023.8</td>
+          </tr>
+          <tr>
+            <td>Patio</td>
+            <td>150.5 Watts</td>
+            <td>$0.0183.8</td>
+          </tr>
+          <tr>
+            <td>Air Conditioning</td>
+            <td>1030.1 Watts</td>
+            <td>$0.83.8</td>
+          </tr>
+        </table>
+     <h4 style="text-align: center">Usage is based on FPL rate of $0.12.5/kWh</h4>
 <p id="demo"></p>
 
 <!-- <script>
@@ -133,6 +129,6 @@ document.getElementById("demo").innerHTML = obj.name + ", " + obj.name;
 </script> -->
 
 <!-- <p>Take a look at <a href="json_demo.txt" target="_blank">json_demo.txt</a></p> -->
-
+    </div>
 </body>
 </html>
