@@ -22,7 +22,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-<body>
+<body style = "background-color: #283655">
   <h1>Usage for all Loads (kWh)</h1>
 <canvas id="myChart"></canvas>
 
@@ -87,10 +87,12 @@ var fplRate = 0.065950;
 // document.getElementById('costtest').innerHTML = fplRate;
 
 </script>
-<h1> Cost Summary : David Gabay </h1>
-<h2> Usage for past hour for all circuits </h2>
-<h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>
-<table>
+<div style = "text-align: center">
+<h1 style = "color: burlywood"> Cost Summary : David Gabay </h1>
+<h2 style = "color: burlywood"> Usage for past hour for all circuits </h2>
+</div>
+
+ <table style = "background-color: burlywood">
   <tr>
     <th>Circuit</th>
     <th>Usage</th>
@@ -127,7 +129,7 @@ var fplRate = 0.065950;
     <td>$0.83.8</td>
   </tr>
 </table>
-
+<h4 style="text-align: center">Usage is based on FPL non fuel rate of $0.065950/kWh</h4>
 
 
 </body>

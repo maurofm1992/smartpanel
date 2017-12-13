@@ -22,8 +22,8 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-<body>
-  <h1>Cost for Load (kWh) on 24hr Period</h1>
+<body style = "background-color: #283655">
+  <h1 style="text-align: center">Cost for Load (kWh) on 24hr Period</h1>
 
 <canvas id="myChart"></canvas>
 
@@ -140,21 +140,24 @@ var chart = new Chart(ctx, {
 // document.getElementById('costtest').innerHTML = fplRate;
 
 </script>
-<h1>Total cost for 24hr Period: Load 2: $  <script>
+
+<div style = "text-align: center">
+<h1 style = "color: burlywood">David Gabay </h1>
+<h1 style="color: darkorange">Total cost for 24hr Period: Load 2: $  <script>
                                             var t = {{cost_total2}}
                                             var t = t.toPrecision(3)
                                           document.write(t)
 
                                         </script>
   </h1>
-  <h1>Total cost for 24hr Period: Load 3: $  <script>
+  <h1 style="color: red">Total cost for 24hr Period: Load 3: $  <script>
                                               var t = {{cost_total3}}
                                               var t = t.toPrecision(3)
                                             document.write(t)
 
                                           </script>
     </h1>
-    <h1>Total cost for 24hr Period: Load 4: $  <script>
+    <h1 style="color: darkgreen">Total cost for 24hr Period: Load 4: $  <script>
                                                 var t = {{cost_total4}}
                                                 var t = t.toPrecision(3)
                                               document.write(t)
@@ -162,11 +165,9 @@ var chart = new Chart(ctx, {
                                             </script>
       </h1>
       <canvas id="myChart2"></canvas>
-
-<h1> Cost Summary : David Gabay </h1>
-<h2> Usage for past hour for all circuits </h2>
-<h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>
-<table>
+    <h2 style="color: burlywood"> Usage for past hour for all circuits </h2>
+</div>
+<table style="background-color: burlywood">
   <tr>
     <th>Circuit</th>
     <th>Usage</th>
@@ -204,7 +205,7 @@ var chart = new Chart(ctx, {
   </tr>
 </table>
 
-
+<h4 style="text-align: center">Usage is based on FPL non fuel rate of $0.065950/kWh</h4>
 
 </body>
 </html>

@@ -22,8 +22,8 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-<body>
-  <h1>Usage for Load (W)</h1>
+<body style = "background-color: #283655">
+  <h1 style = "text-align: center">Usage for Load (W)</h1>
 
 <canvas id="myChart"></canvas>
 
@@ -67,10 +67,13 @@ var chart = new Chart(ctx, {
 
 </script>
 <!-- {{table[0]}}{{table[1]}} -->
-<h1> Cost Summary : David Gabay </h1>
-<h2> Usage for past hour for all circuits </h2>
-<h5>Usage is based on FPL non fuel rate of $0.065950/kWh</h5>
-<table>
+<div style = "text-align: center">
+<h1 style = "color: burlywood"> Cost Summary : David Gabay </h1>
+<h3 style = "color: burlywood"> Usage for past hour for all circuits </h3>
+    </div>
+
+
+<table style = "background-color: burlywood">
   <tr>
     <th>Circuit</th>
     <th>Usage</th>
@@ -107,7 +110,7 @@ var chart = new Chart(ctx, {
     <td>$0.83.8</td>
   </tr>
 </table>
-
+<h4 style="text-align: center">Usage is based on FPL non fuel rate of $0.065950/kWh</h4>
 
 
 </body>
